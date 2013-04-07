@@ -1,4 +1,13 @@
 TestFm::Application.routes.draw do
+
+	get "init/auth_window"
+
+	get "init/scene"
+	post "users/create"
+	get "users/test_json"
+	resource :users
+	root :to => "init#first_request"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

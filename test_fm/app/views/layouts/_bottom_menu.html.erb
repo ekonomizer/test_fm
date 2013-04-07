@@ -1,0 +1,45 @@
+<head>
+	<%= javascript_include_tag "http://vkontakte.ru/js/api/xd_connection.js?2" %>
+</head>
+<!--[if lte IE 7]>
+<style>
+		/* Inline block fix */
+	#dock ul {
+		display: inline;
+		zoom: 1;
+	}
+
+	#dock li, #dock li a {
+		display: inline;
+		zoom: 1;
+	}
+
+		/* Image quality fix */
+	img {
+		-ms-interpolation-mode: bicubic;
+	}
+
+	#dock li a span {
+		filter: alpha(opacity=40);
+	}
+</style>
+<![endif]-->
+<!--<div id="user_info"><a href="http://flapps.ru">http://flapps.ru</a></div>-->
+
+	<div id="dock">
+		<ul>
+			<li><a href="#address"><span>Address</span><%=image_tag "bottom_menu/icon-address.png", :alt => "[address]"%></a></li><!--
+				--><li><a href="#band"><span>Band</span><%=image_tag "bottom_menu/icon-band.png", :alt => "[band]"%></a></li><!--
+				--><li><a href="#calendar"><span>Calendar</span><%=image_tag "bottom_menu/icon-calendar.png", :alt => "[calendar]"%></a></li><!--
+				--><li class="active"><a href="#chat"><span>Chat</span><%=image_tag "bottom_menu/icon-chat.png", :alt => "[chat]"%></a></li><!--
+				--><li class="active"><a href="#music"><span>Music</span><%=image_tag "bottom_menu/icon-music.png", :alt => "[music]"%></a></li><!--
+				--><li><a href="#photo"><span>Photo</span><%=image_tag "bottom_menu/icon-photo.png", :alt => "[photo]"%></a></li><!--
+				--><li><a href="#text"><span>Text</span><%=image_tag "bottom_menu/icon-text.png", :alt => "[text]"%></a></li><!--
+				--><li class="seperator"></li><!--
+				--><li><a href="#folder?src=/apps/"><span>Applications</span><%=image_tag "bottom_menu/icon-applications.png", :alt => "[applications]"%></a></li><!--
+				--><li><a href="#folder?src=/pictures/"><span>Pictures</span><%=image_tag "bottom_menu/icon-pictures.png", :alt => "[pictures]"%></a></li><!--
+				--><li><a href="#folder?src=/documents/"><span>Documents</span><%=image_tag "bottom_menu/icon-documents.png", :alt => "[documents]"%></a></li><!--
+				--><li><a href="#bin"><span>Bin</span><%=image_tag "bottom_menu/icon-bin.png", :alt => "[bin]"%></a></li>
+		</ul>
+	</div>
+

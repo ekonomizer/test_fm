@@ -11,3 +11,17 @@
  *= require_self
  *= require_tree .
  */
+
+body{
+    /*background:#062544;*/
+    background:#fff;
+    font-family: Arial;
+    height:730px;
+}
+#content{
+    min-height:69%;
+}
+#bottomMenu {
+    height:31%;
+    margin: 0px auto;
+}

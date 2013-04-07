@@ -1,0 +1,73 @@
+.button:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+  background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+  background-color:#dfdfdf;
+}
+.button:active {
+  position:relative;
+  top:1px;
+}
+
+.button{
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+  border-radius:6px;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  font-size:18px;
+  font-weight:0,5;
+  padding:8px 24px;
+  text-decoration:none;
+  border: groove #D8D8D8;
+  text-shadow: 0px 2px 0px #fff;
+  filter: dropshadow(color=#e5e5ee,offX=0,offY=1);
+  color: #4b453f;
+  margin-top:10px;
+
+  cursor: pointer;
+
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+  background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+  background-color:#ededed;
+
+}
+
+.white_button {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #f7f7f7;
+  color: #555;
+  margin: 36px;
+  width: 90px;
+  height: 44px;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 50%;
+  box-shadow: 0px 3px 8px #aaa, inset 0px 2px 3px #fff;
+
+  -webkit-transition: all 0.1s linear;
+  -moz-transition:all 0.1s linear;
+  transition:all 0.1s linear;
+  text-shadow: 1px 1px 2px rgba(150, 150, 150, 1);
+}
+
+.white_button:hover {
+  color: #4D85FE;
+  cursor: pointer;
+}
+
+.white_button:active {
+  background-color: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e7e7e7));
+  background-color: -webkit-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-color: -moz-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-color: -ms-linear-gradient(top, #f7f7f7, #e7e7e7);
+  background-color: -o-linear-gradient(top, #f7f7f7, #e7e7e7);
+  position:relative;
+  top:1px;
+}

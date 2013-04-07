@@ -1,0 +1,25 @@
+.img_button {
+  border: groove #D8D8D8;
+  border-radius: 10px;
+}
+
+.img_button:hover {
+  animation: img_button_mouse_over 0.5s;
+  -moz-animation: img_button_mouse_over 0.5s;
+  -webkit-animation: img_button_mouse_over 0.5s;
+  border-radius: 10px;
+  border: groove 4px #5E96FD;
+  cursor: pointer;
+}
+
+.img_button:active{
+  border: ridge #5E96FD;
+  border-radius: 10px;
+  cursor: pointer;
+  position:relative;
+  top:1px;
+}
+
+.img_button_clicked {
+  border: ridge #5E96FD;
+}

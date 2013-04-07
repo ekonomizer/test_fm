@@ -1,0 +1,44 @@
+<div id="choice_base_career_window" class="border_radius_all base_window2">
+	<div id="lable" class="border_radius_top font_size_22 base_window_lable">
+		<center></center>
+	</div>
+
+	<div id="bottom_border">
+	</div>
+
+	<div id="content" class="font_size_16 base_window_content">
+		<div id="greetings" class="align_center font_size_16">
+			Выбирите за кого вы будете играть.
+		</div>
+		<div id="boxes">
+			<div id="first_box" class="base_window_first_box">
+				<%=image_tag "young_footballer.jpg", :alt => "coach", :class => "img_button" %>
+				<center>Футболист</center>
+			</div>
+
+			<div class="check_box">
+				<input type="checkbox" id="fm_checkbox" disabled class="regular-checkbox big-checkbox" /><label for="fm_checkbox"></label>
+			</div>
+			<div id="second_box" class="base_window_second_box">
+				<%=image_tag "young_thief.jpg", :alt => "boss", :class => "img_button" %>
+				<center>Заключенный</center>
+			</div>
+		</div>
+
+		<%=image_tag "skill_start.png", :alt => "boss", :class => "skill_star"%>
+		<div id="description" class="align_left cbc_description base_window_description">
+
+		</div>
+
+		<center>
+			<div id="button_next" class="white_button"></div>
+		</center>
+
+		<!--<%= form_for @user, :url => users_path, :html => {:class => "nifty_form"} do |f| %>
+			<%= f.text_field :login, {:size => 10, :placeholder => 'login', :autofocus => true, :required => true}  %>
+			<%= f.submit "Create" %>
+		<% end %>
+
+		-->
+	</div>
+</div>

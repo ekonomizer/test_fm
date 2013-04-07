@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>TestFm</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title>FMServer</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <!--<%= javascript_include_tag "http://vkontakte.ru/js/api/xd_connection.js?2" %>-->
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+	<%= render "layouts/server_params" %>
+	<div id="content">
+		<div id="windows">
+			<%= render "layouts/windows" %>
+		</div>
+		<%= yield %>
+	</div>
+	<div id="bottomMenu">
+		<%= render "layouts/bottom_menu" %>
+	</div>
 
 </body>
 </html>
