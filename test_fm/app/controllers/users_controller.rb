@@ -18,11 +18,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def test_json
-		some = {user: 1}
-		render :json => some
-	end
-
 	private
 	def user_params
 		params.require(:user).permit(:user_id, :login)

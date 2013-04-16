@@ -6,13 +6,12 @@ class window.FreeTeamsWindow extends BaseWindow
   init:->
     @window = $("#free_teams_window")
     @scrollable_div = '#jp-container'
-    @html = '<li class="ui-widget-content">Item 1</li>
-    				<li class="ui-widget-content">Item 2</li>
-    				<li class="ui-widget-content">Item 3</li>
-    				<li class="ui-widget-content">Item 4</li>
-    				<li class="ui-widget-content">Item 5</li>
-    				'
-    $('#jp-container ol').html(@html)
+
+    @li = $("#free_teams_window #selectable li")
+    @li.html(window.texts.free_teams_window_create_new_team)
+    @clubs = []
+    @clubs.push({id: 0, li: @li})
+
     @title = $("#free_teams_window #lable center")
     @title.text(window.texts.free_teams_window_title)
     @greetings = $("#free_teams_window #greetings")
@@ -24,7 +23,16 @@ class window.FreeTeamsWindow extends BaseWindow
     @button_next = $("#free_teams_window #button_next")
     @button_next.html(window.texts.next)
     @button_next.click(@on_next_button_click)
-    $.getJSON('http://localhost/users/test_json', {}, (json)-> alert(json['user']))
+
+    $.getJSON(window.path + 'clubs/free_clubs', {}, @on_clubs_loaded)
+
+
+  on_clubs_loaded:(e)=>
+    for club in e
+      last_club_html = @clubs[@clubs.length - 1].li
+      club_html = last_club_html.clone().insertAfter(last_club_html)
+      club_html.html(club.name + ' (' + club.country + ')')
+      @clubs.push({id: club.id, li: club_html})
 
   on_next_button_click:=>
     if window.init_params && window.init_params.user_club

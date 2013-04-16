@@ -20,3 +20,4 @@ class window.Texts
     @free_teams_window_default_bonus = "- Бонусное умение персонажа."
     @free_teams_window_footballer_bonus = '- Умеет далеко выбить мяч в аут и крикнуть: "Вышли!"'
     @free_teams_window_thief_bonus = "- Умеет лепить фигурки богов из мякишей хлеба."
+    @free_teams_window_create_new_team = "Создать новую команду"
