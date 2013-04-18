@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+=begin
 	def create
 		logger.info {'USR CREATE'}
 
@@ -17,9 +18,15 @@ class UsersController < ApplicationController
 			end
 		end
 	end
+=end
+	def create
+		render :json => {user: 'lib'}
+	end
 
 	private
 	def user_params
 		params.require(:user).permit(:user_id, :login)
 	end
+
+
 end
