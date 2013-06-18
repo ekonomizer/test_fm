@@ -14,7 +14,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-
+../workspace/*
 
 .DS_Store
 log
@@ -65,16 +65,10 @@ promo/.idea/*
 *.iml
 *.pid
 database.yml
+
 *.auth
 schema.rb
-vk_api_conf.yml
-game_config.yml
 graph_html.html
-app.swf
-app-city.swf
-app-farm.swf
-GiftSplash.swf
-FixtureObjectMovies.as
 .generators
 .rakeTasks
 config/disabled_shards.txt
