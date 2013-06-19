@@ -7,71 +7,20 @@
 # Ignore bundler config.
 /.bundle
 
-# Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
-
 # Ignore all logfiles and tempfiles.
-/log/*.log
-/tmp
 ../workspace/*
 
-.DS_Store
-log
-log/*.log
-log/export/*.html
-log/*.pid
-log/error_pages/some-domain.ru/*/*.html
-log/indexation/*.*
-log/pgq
-tmp/**/*
-doc/report/**/*
-doc/report/*
+log/
 tmp/*
+Gemfile.lock
 config/database.yml
-config/database.yml~
-config/mongrel.yml
-config/memcached.yml
-config/fake_users.yml
-config/config.yml
-config/newrelic.yml
-config/sharder.yml
-db/sharder_*.tch
+
 db/schema.rb
-linkfeed.db/*
-locks/*
-nbproject
-tags
-.tmp_*
-.project
-coverage
-vendor/plugins/footnotes
-.idea/**/*
-.idea/*
-config/pgq_tickers/test*.ini
-config/pgq_tickers/development*.ini
-config/pgq_tickers/londiste_development*.ini
-public/docs
-*~
-public/cache/*
-promo/.idea/*
-.tmp_*
-.project
-.idea/**/*
-.idea/*
-*~
 .idea
-.rakeTasks
 *.iml
 *.pid
-database.yml
 
-*.auth
-schema.rb
-graph_html.html
-.generators
 .rakeTasks
-config/disabled_shards.txt
-database.yml.for_reload
+
 .sass-cache/
 public/assets/

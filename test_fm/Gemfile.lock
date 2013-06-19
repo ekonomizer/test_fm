@@ -37,6 +37,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    dalli (2.6.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -47,6 +48,9 @@ GEM
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (4.0.3)
+      jquery-rails
+      railties (>= 3.1.0)
     libv8 (3.11.8.17)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -111,8 +115,10 @@ PLATFORMS
 DEPENDENCIES
   annotate
   coffee-rails (~> 4.0.0.beta1)
+  dalli
   jbuilder (~> 1.0.1)
   jquery-rails
+  jquery-ui-rails
   pg
   puma
   rails (= 4.0.0.rc2)

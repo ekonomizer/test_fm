@@ -1,5 +1,5 @@
 class AddHstoreExtension < ActiveRecord::Migration
   def change
-	  execute 'CREATE EXTENSION hstore'
+    enable_extension "hstore"
   end
 end
