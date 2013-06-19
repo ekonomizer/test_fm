@@ -20,7 +20,21 @@ class UsersController < ApplicationController
 	end
 =end
 	def create
-		render :json => {user: 'lib'}
+		if session['user_id']
+			begin
+				user = User.new
+				user.user_id = session['user_id']
+				user.login = 'test_login'
+				user.base_career = params['base_career']
+				#user.club_id = params['club_id']
+				#user.manager = params['manager']
+
+				raise 'user invalid fr create' unless user.save!
+				render :json => {user: session[:user_id]}
+			rescue
+				raise 'error in create'
+			end
+		end
 	end
 
 	private

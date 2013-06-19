@@ -41,7 +41,6 @@ class window.ChoiceBaseCareerWindow extends BaseWindow
     @boss_box.removeClass('img_button_clicked')
     $("#choice_base_career_window #fm_checkbox").attr('checked', true)
 
-    window.init_params = {}
     window.init_params.base_career =
       if e.target.alt == 'boss'
         @boss_box.addClass('img_button_clicked')

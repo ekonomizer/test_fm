@@ -52,33 +52,14 @@ class window.FreeTeamsWindow extends BaseWindow
   on_next_button_click:=>
     if window.init_params && window.init_params.club_id
       data = $.toJSON(window.init_params)
-      $.getJSON(window.path + 'users/create', data, @on_loaded)#.done(@on_done).fail(@on_fail).success(@on_loaded).complete(@on_complete).always(@on_always)
-      #$.ajax({ url: window.path + 'users/create', dataType: 'json', data: window.init_params, success: @on_succes, error: @on_fail})
-
+      $.getJSON(window.path + 'users/create', window.init_params, @on_loaded)
       #@close_window(@after_choice_window_close)
     else
       @error_text.text(window.texts.need_choise_club)
       @error_text.addClass('text_warninig')
 
-  on_always:()=>
-    alert('always')
-
   on_loaded:(e)=>
-    alert('@@@')
-    alert(e)
-
-  on_fail:(e)=>
-    alert('fail')
-
-  on_succes:(e)=>
-    alert('succes')
-
-  on_done:(e)=>
-    alert('on_done')
-
-  on_complete:(e)=>
-    alert('on_complete')
-
+    alert(e['user'])
 
   get_scrollable_div:->
     @scrollable_div
