@@ -14,7 +14,7 @@ class window.FreeTeamsWindow extends BaseWindow
     @clubs = []
     @clubs.push({id: 'new', li: @li})
 
-    @title = $("#free_teams_window #lable center")
+    @title = $("#free_teams_window #lable")
     @title.text(window.texts.free_teams_window_title)
     @greetings = $("#free_teams_window #greetings")
     @greetings.text(window.texts.free_teams_window_choice_club)

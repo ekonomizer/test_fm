@@ -7,7 +7,7 @@ class window.ChoiceBaseCareerWindow extends BaseWindow
     @window = $("#choice_base_career_window")
     @bonus_text = $("#choice_base_career_window #description")
     @bonus_text .text(window.texts.choice_base_career_default_bonus)
-    @title = $("#choice_base_career_window #lable center")
+    @title = $("#choice_base_career_window #lable")
     @title.text(window.texts.choice_base_career_window_title)
 
     @choise_text = $("#choice_base_career_window #greetings")

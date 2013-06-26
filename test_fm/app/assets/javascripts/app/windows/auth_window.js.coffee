@@ -7,7 +7,7 @@ class window.AuthWindow extends BaseWindow
     @window = $("#auth_window")
     @description = $("#auth_window #description")
     @description.text(window.texts.auth_window_description)
-    @title = $("#auth_window #lable center")
+    @title = $("#auth_window #lable")
     @title.text(window.texts.auth_window_title)
 
     @choise_text = $("#auth_window #greetings")
