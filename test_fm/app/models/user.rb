@@ -3,10 +3,11 @@
 # Table name: users
 #
 #  id         :integer          not null, primary key
-#  user_id    :integer
-#  login      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  user_id    :integer          not null
+#  login      :string(255)      not null
+#  data       :hstore
+#  created_at :datetime
+#  updated_at :datetime
 #
 
 class User < ActiveRecord::Base
