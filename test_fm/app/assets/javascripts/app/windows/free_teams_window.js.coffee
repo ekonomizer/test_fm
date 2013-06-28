@@ -1,7 +1,5 @@
 class window.FreeTeamsWindow extends BaseWindow
 
-
-
   constructor:->
     @init()
 

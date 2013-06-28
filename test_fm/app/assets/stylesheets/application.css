@@ -16,12 +16,20 @@ body{
     /*background:#062544;*/
     background:#fff;
     font-family: Arial;
-    height:730px;
+    height: 100%;
+    height-min: 730px;
+    margin-top: 0;
 }
 #content{
-    min-height:69%;
+    height: 99%;
+
+}
+#windows {
+    height: 650px;
+    overflow: hidden;
+    position: relative;
 }
 #bottomMenu {
-    height:31%;
+    height:1%;
     margin: 0px auto;
 }

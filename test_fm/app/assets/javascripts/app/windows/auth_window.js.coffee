@@ -24,7 +24,8 @@ class window.AuthWindow extends BaseWindow
 
   on_next_button_click:=>
     if window.init_params && window.init_params.manager
-      @close_window(@after_auth_window_close)
+      WindowsManager.get().close_window(AuthWindow)
+      WindowsManager.get().show_window(ChoiceBaseCareerWindow)
       #window.scene.bottom_menu.visible(true)
     else
       @description.text(window.texts.need_choise)

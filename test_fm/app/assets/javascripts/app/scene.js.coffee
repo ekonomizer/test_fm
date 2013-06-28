@@ -11,13 +11,14 @@ class window.Scene
     #window.owner = new User()
     #@server_requests_service = new ServerRequestsService
     #if window.server_params.is_new_user
-    auth_window = new AuthWindow()
-    auth_window.visible(true)
+    wm = WindowsManager.get()
+    wm.show_window(AuthWindow)
+    #auth_window.visible(true)
     return
     #else
     @bottom_menu.visible(true)
 
-  show_window:(name)->
+  @show_window:(name)->
     $("#"+name).toggle(1000) unless $("#"+name).is(':visible')
 
 

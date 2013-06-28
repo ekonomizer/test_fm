@@ -24,7 +24,8 @@ class window.ChoiceBaseCareerWindow extends BaseWindow
 
   on_next_button_click:=>
     if window.init_params && window.init_params.base_career
-      @close_window(@after_choice_window_close)
+      WindowsManager.get().close_window(ChoiceBaseCareerWindow)
+      WindowsManager.get().show_window(FreeTeamsWindow)
     else
       @bonus_text.text(window.texts.need_choise)
       @bonus_text.addClass('text_warninig')
