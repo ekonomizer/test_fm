@@ -12,8 +12,6 @@ class window.Scene
     #@server_requests_service = new ServerRequestsService
     windows_manager = WindowsManager.get()
 
-    windows_manager.show_window(FreeTeamsWindow)
-    return
     if window.server_params.without_social
       windows_manager.show_window(LoginWithoutSocialWindow)
     else if window.server_params.is_new_user

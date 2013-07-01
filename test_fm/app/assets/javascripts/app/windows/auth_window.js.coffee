@@ -43,7 +43,7 @@ class window.AuthWindow extends BaseWindow
     @boss_box.removeClass('img_button_clicked')
     $("#auth_window #fm_checkbox").attr('checked', true)
 
-    window.init_params = {}
+    window.init_params ||= {}
     window.init_params.manager =
     if e.target.alt == 'boss'
       @boss_box.addClass('img_button_clicked')

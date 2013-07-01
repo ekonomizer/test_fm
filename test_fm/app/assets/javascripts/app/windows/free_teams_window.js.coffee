@@ -24,9 +24,9 @@ class window.FreeTeamsWindow extends BaseWindow
     @button_next.html(window.texts.next)
     @button_next.click(@on_next_button_click)
 
+
   show:->
-    super()
-    $.getJSON(window.path + 'clubs/free_clubs', {}, @on_clubs_loaded)
+    $.getJSON(window.path + 'clubs/free_clubs', {}, (e)=>@on_clubs_loaded(e);super())
 
   on_clubs_loaded:(e)=>
     for club in e
@@ -38,12 +38,12 @@ class window.FreeTeamsWindow extends BaseWindow
 
     @init_click_handlers()
 
+
   init_click_handlers:->
     for club in @clubs
       club.li.click(@select_club)
 
   select_club:(e)=>
-    alert('@@@')
     for club in @clubs
       if club.id == e.currentTarget.id
         window.init_params.club_id = club.id
@@ -51,7 +51,7 @@ class window.FreeTeamsWindow extends BaseWindow
 
   on_next_button_click:=>
     if window.init_params && window.init_params.club_id
-      data = $.toJSON(window.init_params)
+      #data = $.toJSON(window.init_params)
       $.getJSON(window.path + 'users/create', window.init_params, @on_loaded)
       #@close_window(@after_choice_window_close)
     else
