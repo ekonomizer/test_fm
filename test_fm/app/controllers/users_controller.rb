@@ -19,17 +19,43 @@ class UsersController < ApplicationController
 		end
 	end
 =end
+
+  def login
+    begin
+      raise 'to long login' if params[:login].size > 254
+      raise 'to long pass' if params[:pass].size > 30
+
+      user = User.where(login: params[:login], password: params[:pass])
+      session[:login] = params[:login] if user
+      render :json => {loged_in: !user.empty?}
+    rescue
+      raise 'error in sign in'
+    end
+  end
+
+  def sign_in
+    begin
+      raise 'to long login' if params[:login].size > 254
+      raise 'to long pass' if params[:pass].size > 30
+
+      session[:login] = params[:login]
+      render :json => {signed_in: true}
+    rescue
+      raise 'error in sign in'
+    end
+  end
+
 	def create
-		if session['user_id']
+		if session['user_id'] || session['login']
 			begin
 				user = User.new
 				user.user_id = session['user_id']
 				user.login = 'test_login'
 				user.base_career = params['base_career']
-				#user.club_id = params['club_id']
-				#user.manager = params['manager']
+				user.club_id = params['club_id']
+				user.manager = params['manager']
 
-				raise 'user invalid fr create' unless user.save!
+				raise 'user invalid in create' unless user.save!
 				render :json => {user: session[:user_id]}
 			rescue
 				raise 'error in create'

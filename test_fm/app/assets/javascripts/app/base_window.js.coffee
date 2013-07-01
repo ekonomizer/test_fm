@@ -35,20 +35,21 @@ class window.BaseWindow
     @visible(true)
     @scroll_left()#.appendTo("#windows")
     @scroll_center(@window_sliding_animate)
+    new Scrollbar(@get_scrollable_div()) if @get_scrollable_div()
 
   close:->
     @scroll_right(@window_sliding_animate_and_hide)#.prependTo("#windows")
 
-  scroll_left:(animate_method)->
+  scroll_left:(animate_method = null)->
     return @window.position({
       my: "right center",
       at: "left center",
       of: "#content",
       collision: "none",
       using: animate_method
-    });
+    })
 
-  scroll_right:(animate_method)->
+  scroll_right:(animate_method = null)->
     return @window.position({
       my: "left center",
       at: "right center",
@@ -70,3 +71,18 @@ class window.BaseWindow
 
   window_sliding_animate_and_hide:(to)=>
     $(this).stop(true, false).animate(to, "slow", "easeInOutQuart")
+
+
+  play_wrong_animation:->
+    #@window.effect("shake");
+    options = {
+      direction: 'left',
+      distance: 10,
+      times: 2
+      }
+    left =
+      if @window.position().left > parseInt(@window.css('margin-left'))
+        @window.position().left
+      else
+        @window.css('margin-left')
+    @window.css({'margin-left': left}).effect('shake' , options , 75)

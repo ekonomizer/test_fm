@@ -1,0 +1,41 @@
+#login_without_social_window {
+
+  height: 300px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+
+
+  input:focus {
+    background-color: #fff;
+    animation: input_on_focus 0.5s;
+    -moz-animation: input_on_focus 0.5s;
+    -webkit-animation: input_on_focus 0.5s;
+    color: #457cff;
+  }
+
+  input {
+    margin-top: 40px;
+    width: 240px;
+    outline: none;
+    background-color: #ECECEC;
+
+  }
+
+  #sign_in {
+    margin-top: 15px;
+    color: #457cff;
+    font-size: 16px;
+    text-decoration: none;
+  }
+
+  #sign_in span:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  #button_next{
+    margin-top: 15px;
+  }
+}

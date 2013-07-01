@@ -52,6 +52,3 @@ class window.AuthWindow extends BaseWindow
       @coach_box.addClass('img_button_clicked')
       'coach'
 
-
-
-

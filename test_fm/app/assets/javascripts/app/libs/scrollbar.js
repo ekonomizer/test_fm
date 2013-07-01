@@ -11,7 +11,7 @@
 
 
         function start_scroll() {
-            $( "#selectable" ).selectable();
+            $("#selectable").selectable();
             $('#selectable').selectable({
                 selecting: function (event, ui) {
                     $(event.target).children('.ui-selecting').not(':first').removeClass('ui-selecting');

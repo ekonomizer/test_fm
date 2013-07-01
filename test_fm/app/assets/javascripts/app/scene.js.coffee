@@ -10,13 +10,16 @@ class window.Scene
   continue_initialization:->
     #window.owner = new User()
     #@server_requests_service = new ServerRequestsService
-    #if window.server_params.is_new_user
-    wm = WindowsManager.get()
-    wm.show_window(AuthWindow)
-    #auth_window.visible(true)
+    windows_manager = WindowsManager.get()
+
+    windows_manager.show_window(FreeTeamsWindow)
     return
-    #else
-    @bottom_menu.visible(true)
+    if window.server_params.without_social
+      windows_manager.show_window(LoginWithoutSocialWindow)
+    else if window.server_params.is_new_user
+      windows_manager.show_window(AuthWindow)
+    else
+      windows_manager.show_window(BottomMenu)
 
   @show_window:(name)->
     $("#"+name).toggle(1000) unless $("#"+name).is(':visible')

@@ -21,3 +21,13 @@ class window.Texts
     @free_teams_window_footballer_bonus = '- Умеет далеко выбить мяч в аут и крикнуть: "Вышли!"'
     @free_teams_window_thief_bonus = "- Умеет лепить фигурки богов из мякишей хлеба."
     @free_teams_window_create_new_team = "Создать новую команду"
+
+    @login_without_social_window_log_in = "Вход"
+    @button_in = "Войти"
+    @login_without_social_window_sign_in = "Регистрация"
+    @button_ok = "Ок"
+    @login= "Логин"
+    @pass = "Пароль"
+    @need_sign_in = "Если Вы еще не зарегестрированны, то для входа в игру Вам необходимо это сделать"
+    @need_login_in = "Если Вы уже зарегестрированны, перейдите ко входу"
+    @need_fill_input = "Поле нужно заполнить"
