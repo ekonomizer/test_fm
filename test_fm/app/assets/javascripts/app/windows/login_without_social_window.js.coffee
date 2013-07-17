@@ -52,9 +52,14 @@ class window.LoginWithoutSocialWindow extends BaseWindow
     else
       @play_wrong_animation()
 
+    if e.login_busy
+      @login_input.val('')
+      @login_input.attr('placeholder', window.texts.login_already_busy)
+
   on_login:(e)=>
     if e.loged_in
-      WindowsManager.get().show_window(AuthWindow)
+      WindowsManager.get().close_window(LoginWithoutSocialWindow)
+      Scene.start_game()
     else
       @play_wrong_animation()
 

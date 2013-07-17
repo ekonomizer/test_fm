@@ -4,6 +4,7 @@ TestFm::Application.routes.draw do
 
 	get "init/scene"
 	post "users/create"
+
   get "users/sign_in"
   get "users/login"
 	get "users/create"

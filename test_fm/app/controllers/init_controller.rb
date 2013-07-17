@@ -1,23 +1,17 @@
 class InitController < ApplicationController
 
 	def first_request
-		#return unless params[:viewer_id]
 		logger.info {User.where(user_id: params[:viewer_id])}
 
-		if User.where(user_id: params[:viewer_id]).empty?
-      response_param = params[:viewer_id]? 'is_new_user' : 'without_social'
+    if params[:viewer_id] != nil
+      session[:user_id] = params[:viewer_id]
+      response_param = (!User.where(user_id: params[:viewer_id]).empty?)? 'can_start' : 'is_new_user'
+    else
+      response_param = 'without_social'
+    end
 
-      session[:user_id] = params[:viewer_id] if params[:viewer_id]
-
-			#@user = User.new
-			@server_params = {response_param => true}
-			render :scene
-			#render :auth_window
-		else
-			logger.info {"INIT NOTHING"}
-
-			render :scene
-		end
+    @server_params = {response_param => true}
+    render :scene
 	end
 
   def auth_window

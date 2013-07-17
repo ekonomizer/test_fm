@@ -13,6 +13,6 @@
 
 class User < ActiveRecord::Base
 	store_accessor :data, :club_id, :base_career, :manager
-	validates :base_career, :inclusion => { :in => %w(footballer large),
-                                   :message => "%{value} is not a valid base_career" }
+	#validates :base_career, :inclusion => { :in => %w(footballer large),
+  #                                 :message => "%{value} is not a valid base_career" }
 end

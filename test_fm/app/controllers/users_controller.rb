@@ -22,12 +22,13 @@ class UsersController < ApplicationController
 
   def login
     begin
+      raise "not have all params #{params}" if !params[:login] || !params[:pass]
       raise 'to long login' if params[:login].size > 254
       raise 'to long pass' if params[:pass].size > 30
 
-      user = User.where(login: params[:login], password: params[:pass])
-      session[:login] = params[:login] if user
-      render :json => {loged_in: !user.empty?}
+      users = User.where(login: params[:login], password: params[:pass])
+      session[:login] = params[:login] if users
+      render :json => {loged_in: !users.empty?}
     rescue
       raise 'error in sign in'
     end
@@ -35,11 +36,18 @@ class UsersController < ApplicationController
 
   def sign_in
     begin
+      raise "not have all params #{params}" if !params[:login] || !params[:pass]
       raise 'to long login' if params[:login].size > 254
       raise 'to long pass' if params[:pass].size > 30
 
-      session[:login] = params[:login]
-      render :json => {signed_in: true}
+      response = {}
+      unless User.where(login: params[:login]).empty?
+        response[:login_busy] = true
+      else
+        session[:login] = params[:login]
+        response[:signed_in] = true
+      end
+      render :json => response
     rescue
       raise 'error in sign in'
     end
@@ -47,16 +55,27 @@ class UsersController < ApplicationController
 
 	def create
 		if session['user_id'] || session['login']
+      p params
 			begin
+        raise "not have all params #{params}" if !params['base_career'] || !params['club_id'] || !params['manager']
+        if session['user_id'] != nil
+          raise 'user with same user_id already created' unless User(user_id: session['user_id']).empty?
+        end
+
+        if params['login']
+          raise 'user with same login already created' unless User(login: params['login']).empty?
+        end
+
 				user = User.new
-				user.user_id = session['user_id']
-				user.login = 'test_login'
+				user.user_id = session['user_id'] if session['user_id'] != nil
+				user.login = params['login'] if params['login']
+				user.password = params['pass'] if params['pass']
 				user.base_career = params['base_career']
 				user.club_id = params['club_id']
 				user.manager = params['manager']
 
 				raise 'user invalid in create' unless user.save!
-				render :json => {user: session[:user_id]}
+				render :json => {user: true}
 			rescue
 				raise 'error in create'
 			end
