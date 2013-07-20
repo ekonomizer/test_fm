@@ -1,22 +1,20 @@
 TestFm::Application.routes.draw do
-
-	get "init/auth_window"
-
-	get "init/scene"
-	post "users/create"
+  get "init/auth_window"
+  get "init/scene"
+  post "users/create"
 
   get "users/sign_in"
   get "users/login"
-	get "users/create"
-	get "clubs/free_clubs"
-	resource :users
-	root :to => "init#first_request"
+  get "users/create"
+  get "clubs/free_clubs"
+  resource :users
+  root :to => "init#first_request"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root to: 'welcome#index'
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -52,6 +50,13 @@ TestFm::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
+  
+  # Example resource route with concerns:
+  #   concern :toggleable do
+  #     post 'toggle'
+  #   end
+  #   resources :posts, concerns: :toggleable
+  #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
   #   namespace :admin do
