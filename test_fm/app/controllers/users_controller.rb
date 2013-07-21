@@ -20,39 +20,6 @@ class UsersController < ApplicationController
 	end
 =end
 
-  def login
-    begin
-      raise "not have all params #{params}" if !params[:login] || !params[:pass]
-      raise 'to long login' if params[:login].size > 254
-      raise 'to long pass' if params[:pass].size > 30
-
-      users = User.where(login: params[:login], password: params[:pass])
-      session[:login] = params[:login] if users
-      render :json => {loged_in: !users.empty?}
-    rescue
-      raise 'error in sign in'
-    end
-  end
-
-  def sign_in
-    begin
-      raise "not have all params #{params}" if !params[:login] || !params[:pass]
-      raise 'to long login' if params[:login].size > 254
-      raise 'to long pass' if params[:pass].size > 30
-
-      response = {}
-      unless User.where(login: params[:login]).empty?
-        response[:login_busy] = true
-      else
-        session[:login] = params[:login]
-        response[:signed_in] = true
-      end
-      render :json => response
-    rescue
-      raise 'error in sign in'
-    end
-  end
-
 	def create
 		if session['user_id'] || session['login']
       p params
@@ -86,6 +53,4 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:user_id, :login)
 	end
-
-
 end
