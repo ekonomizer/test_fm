@@ -40,20 +40,27 @@ class AuthController < ApplicationController
   end
 
   def sign_in
-    raise "not have all params #{params}" if !params[:login] || !params[:pass]
+    raise "not have all params #{params}" if !params[:login] || !params[:password]
     raise 'to long login' if params[:login].size > 254
-    raise 'to long pass' if params[:pass].size > 30
+    raise 'to long pass' if params[:password].size > 30
 
     begin
-      response = {}
-      unless User.where(login: params[:login]).empty?
-        response[:login_busy] = true
-      else
-        reset_session
-        session[:login] = params[:login]
-        response[:signed_in] = true
+      mutex = Mutex.new
+      mutex.synchronize do
+
+        response = {}
+        user = User.where(login: params[:login])
+        p '!!!!!!!'
+        p user.empty? == false
+        unless User.where(login: params[:login]).empty?
+          response[:login_busy] = true
+        else
+          reset_session
+          session[:login] = params[:login]
+          response[:signed_in] = true
+        end
+        render :json => response
       end
-      render :json => response
     rescue
       raise 'error in sign in'
     end

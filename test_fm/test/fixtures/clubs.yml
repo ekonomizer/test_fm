@@ -1,9 +1,10 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+club_00000001:
+  id: 1
+  name_ru: "КФМ Адмира Ваккер"
+  name_en: "CFM Admira Wacker Mödling"
 
-one:
-  name: MyString
-  city_id: 1
+club_00000002:
+  id: 2
+  name_ru: "Аустрия"
+  name_en: "FK Austria Wien"
 
-two:
-  name: MyString
-  city_id: 1

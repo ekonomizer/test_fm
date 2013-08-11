@@ -6,6 +6,7 @@ TestFm::Application.routes.draw do
   get "auth/sign_in"
   get "auth/login"
   get "users/create"
+  get "users/test_threads"
   get "clubs/free_clubs"
   resource :users
   root :to => "init#first_request"

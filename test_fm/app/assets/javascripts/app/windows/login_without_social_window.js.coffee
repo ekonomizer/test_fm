@@ -46,7 +46,7 @@ class window.LoginWithoutSocialWindow extends BaseWindow
     if e.signed_in
       window.init_params ||= {}
       window.init_params.login = @login_input.val()
-      window.init_params.pass = @pass_input.val()
+      window.init_params.password = @pass_input.val()
       WindowsManager.get().close_window(LoginWithoutSocialWindow)
       WindowsManager.get().show_window(AuthWindow)
     else

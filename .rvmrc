@@ -1,1 +1,1 @@
-rvm use 2.0.0@rails400fm
+rvm use jruby-1.7.4@rails400

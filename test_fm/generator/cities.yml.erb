@@ -1,0 +1,9 @@
+<%
+  data = []
+  set_param(data, "id", item["id"].to_i)
+  set_param(data, "name_ru", item["name_ru"])
+  set_param(data, "name_en", item["name_en"])
+
+%>city_<%=@counter.succ!%>:
+  <%=generate_params data%>
+
