@@ -1,0 +1,17 @@
+application: fmassets
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /favicon.ico
+  static_files: favicon.ico
+  upload: favicon.ico
+
+#- url: /assets/(.*\.(js|css))
+- url: /assets/(.*\.(png|jpeg|jpg|gif|ico))
+  script: cacheheaders.py
+
+#Загрузки/google_appengine/appcfg.py update fm/test_fm/public/
+#http://fmassets2.appspot.com/
+#http://fmassets.appspot.com/

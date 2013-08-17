@@ -1,6 +1,5 @@
 TestFm::Application.routes.draw do
-  get "init/auth_window"
-  get "init/scene"
+
   post "users/create"
 
   get "auth/sign_in"
@@ -8,8 +7,10 @@ TestFm::Application.routes.draw do
   get "users/create"
   get "users/test_threads"
   get "clubs/free_clubs"
+  get "init/first_request"
+
   resource :users
-  root :to => "init#first_request"
+  root :to => "init#load_app"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

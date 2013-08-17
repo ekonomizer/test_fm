@@ -1,5 +1,11 @@
 class InitController < ApplicationController
 
+  caches_page :load_app if Rails.env == 'production'
+
+  def load_app
+
+  end
+
 	def first_request
 		logger.info {User.where(user_id: params[:viewer_id])}
 
@@ -9,14 +15,6 @@ class InitController < ApplicationController
     else
       response_param = 'without_social'
     end
-
-    @server_params = {response_param => true}
-    render :scene
+    render :json => {response_param => true}
 	end
-
-  def auth_window
-  end
-
-  def scene
-  end
 end

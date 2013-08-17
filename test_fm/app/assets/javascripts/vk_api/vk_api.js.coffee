@@ -7,7 +7,6 @@ class window.VkApi
       @set_flash_vars()
       @succes_initialization = true
       @call_requests()
-      window.scene.continue_initialization()
     )
 
   set_flash_vars:->

@@ -1,3 +1,4 @@
+#require 'coffee_script'
 TestFm::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -11,7 +12,7 @@ TestFm::Application.configure do
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
   config.cache_store = :dalli_store
 
   # Don't care if the mailer can't send.
@@ -19,7 +20,7 @@ TestFm::Application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-
+  config.log_level = :info
   # Raise an error on page load if there are pending migrations
   config.active_record.migration_error = :page_load
 
@@ -27,4 +28,9 @@ TestFm::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  #config.serve_static_assets = false
+  config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => '*',
+                                             'Access-Control-Request-Method' => '*',
+                                             'Header-Name' => 'Header-Value',
+                                             'X-Frame-Options' => 'ALLOW-FROM http://api.vk.com' }
 end
