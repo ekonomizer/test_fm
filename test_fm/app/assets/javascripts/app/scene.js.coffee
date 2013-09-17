@@ -3,13 +3,21 @@ class window.Scene
   init:->
     window.config = new Config()
     window.scene = this
-    window.vk_api = new VkApi()
+    @init_api()
     #@bottom_menu = new BottomMenu()
-    #@continue_initialization()
+
+  init_api:->
+    api_class = SocialsApi.get_api()
+    if api_class
+      window.social_api = new api_class(@after_init_api)
+    else
+      @after_init_api()
+
+  after_init_api:=>
     $.getJSON(window.path + 'init/first_request', {viewer_id: window.config.user_id()}, @first_request_loaded)
 
   first_request_loaded:(e)=>
-    alert('!!!')
+    alert('first_request_loaded')
     window.server_params = e
     #window.owner = new User()
     #@server_requests_service = new ServerRequestsService

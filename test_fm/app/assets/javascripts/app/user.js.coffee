@@ -38,7 +38,7 @@ class window.User
     @init()
 
   init:->
-    window.vk_api.get_profiles(window.config.user_id(), @on_profiles_load)
+    window.social_api.get_profiles(window.config.user_id(), @on_profiles_load)
 
   on_profiles_load:(data)->
 

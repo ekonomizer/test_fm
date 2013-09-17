@@ -3,7 +3,11 @@ class InitController < ApplicationController
   caches_page :load_app if Rails.env == 'production'
 
   def load_app
-
+=begin
+    Rack::MiniProfiler.step("fetch projects") do
+     p Country.cached_countries
+    end
+=end
   end
 
 	def first_request
