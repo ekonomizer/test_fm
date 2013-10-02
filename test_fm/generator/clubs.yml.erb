@@ -3,6 +3,9 @@
   set_param(data, "id", item["id"].to_i)
   set_param(data, "name_ru", item["name_ru"])
   set_param(data, "name_en", item["name_en"])
+  set_param(data, "city_id", item["city_id"])
+  set_param(data, "country_id", item["country_id"])
+  set_param(data, "division", item["division"])
 
 %>club_<%=@counter.succ!%>:
   <%=generate_params data%>

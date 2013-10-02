@@ -1,10 +1,176 @@
 club_00000001:
   id: 1
-  name_ru: "КФМ Адмира Ваккер"
-  name_en: "CFM Admira Wacker Mödling"
+  name_ru: "Милан"
+  name_en: "Милан"
+  city_id: "1"
+  country_id: "20"
+  division: "1"
 
 club_00000002:
   id: 2
-  name_ru: "Аустрия"
-  name_en: "FK Austria Wien"
+  name_ru: "Лацио"
+  name_en: "Лацио"
+  city_id: "2"
+  country_id: "20"
+  division: "1"
+
+club_00000003:
+  id: 3
+  name_ru: "Фиорентина"
+  name_en: "Фиорентина"
+  city_id: "2"
+  country_id: "20"
+  division: "1"
+
+club_00000004:
+  id: 4
+  name_ru: "Генуя"
+  name_en: "Генуя"
+  city_id: "3"
+  country_id: "20"
+  division: "2"
+
+club_00000005:
+  id: 5
+  name_ru: "Интер"
+  name_en: "Интер"
+  city_id: "1"
+  country_id: "20"
+  division: "1"
+
+club_00000006:
+  id: 6
+  name_ru: "Ювентус"
+  name_en: "Ювентус"
+  city_id: "2"
+  country_id: "20"
+  division: "1"
+
+club_00000007:
+  id: 7
+  name_ru: "Палермо"
+  name_en: "Палермо"
+  city_id: "1"
+  country_id: "20"
+  division: "2"
+
+club_00000008:
+  id: 8
+  name_ru: "Динамо"
+  name_en: "Динамо"
+  city_id: "4"
+  country_id: "34"
+  division: "1"
+
+club_00000009:
+  id: 9
+  name_ru: "Локомотив"
+  name_en: "Локомотив"
+  city_id: "4"
+  country_id: "34"
+  division: "1"
+
+club_00000010:
+  id: 10
+  name_ru: "Зенит"
+  name_en: "Зенит"
+  city_id: "6"
+  country_id: "34"
+  division: "1"
+
+club_00000011:
+  id: 11
+  name_ru: "ЦСКА"
+  name_en: "ЦСКА"
+  city_id: "4"
+  country_id: "34"
+  division: "1"
+
+club_00000012:
+  id: 12
+  name_ru: "Анжи"
+  name_en: "Анжи"
+  city_id: "5"
+  country_id: "34"
+  division: "2"
+
+club_00000013:
+  id: 13
+  name_ru: "Спартак"
+  name_en: "Спартак"
+  city_id: "4"
+  country_id: "34"
+  division: "2"
+
+club_00000014:
+  id: 14
+  name_ru: "Ливерпуль"
+  name_en: "Ливерпуль"
+  city_id: "7"
+  country_id: "4"
+  division: "1"
+
+club_00000015:
+  id: 15
+  name_ru: "Манчестер"
+  name_en: "Манчестер"
+  city_id: "7"
+  country_id: "4"
+  division: "1"
+
+club_00000016:
+  id: 16
+  name_ru: "Сити"
+  name_en: "Сити"
+  city_id: "7"
+  country_id: "4"
+  division: "2"
+
+club_00000017:
+  id: 17
+  name_ru: "Арсенал"
+  name_en: "Арсенал"
+  city_id: "7"
+  country_id: "4"
+  division: "1"
+
+club_00000018:
+  id: 18
+  name_ru: "Ньюкасл"
+  name_en: "Ньюкасл"
+  city_id: "8"
+  country_id: "4"
+  division: "2"
+
+club_00000019:
+  id: 19
+  name_ru: "Тотенхем"
+  name_en: "Тотенхем"
+  city_id: "8"
+  country_id: "4"
+  division: "2"
+
+club_00000020:
+  id: 20
+  name_ru: "Реал бр"
+  name_en: "Реал бр"
+  city_id: "9"
+  country_id: "54"
+  division: "1"
+
+club_00000021:
+  id: 21
+  name_ru: "Валенсия бр"
+  name_en: "Валенсия бр"
+  city_id: "9"
+  country_id: "54"
+  division: "2"
+
+club_00000022:
+  id: 22
+  name_ru: "Чили бр"
+  name_en: "Чили бр"
+  city_id: "10"
+  country_id: "59"
+  division: "1"
 

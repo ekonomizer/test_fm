@@ -3,14 +3,14 @@
 # Table name: clubs
 #
 #  id         :integer          not null, primary key
-#  name       :string(255)      not null
+#  name_ru    :string(255)      not null
+#  name_en    :string(255)      not null
 #  city_id    :integer          not null
-#  user_id    :integer
 #  country_id :integer          not null
-#  created_at :datetime
-#  updated_at :datetime
+#  division   :integer
 #
 
 class Club < ActiveRecord::Base
 	belongs_to :country
+  has_many :user_clubs
 end

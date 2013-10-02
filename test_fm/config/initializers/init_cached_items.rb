@@ -1,3 +1,3 @@
-Country.init_cache
+Country.cached_countries
 
 

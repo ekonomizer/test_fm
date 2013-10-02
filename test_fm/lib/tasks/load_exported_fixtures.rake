@@ -21,6 +21,7 @@
 # Usage: rake db:fixtures:extract
 # rake db:fixtures:extract FIXTURES=foo
 # rake db:fixtures:extract FIXTURES=foo,bar
+# rake db:fixtures:load FIXTURES=foo,bar
 desc 'Create YAML test fixtures from data in an existing database.
 Defaults to development database. Set RAILS_ENV to override.'
 namespace :db do

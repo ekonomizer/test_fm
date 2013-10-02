@@ -1,0 +1,60 @@
+city_00000001:
+  id: 1
+  name_ru: "Милан"
+  name_en: "Милан"
+  country_id: "20"
+
+city_00000002:
+  id: 2
+  name_ru: "Рим"
+  name_en: "Рим"
+  country_id: "20"
+
+city_00000003:
+  id: 3
+  name_ru: "Генуя"
+  name_en: "Генуя"
+  country_id: "20"
+
+city_00000004:
+  id: 4
+  name_ru: "Москва"
+  name_en: "Москва"
+  country_id: "34"
+
+city_00000005:
+  id: 5
+  name_ru: "Махачкала"
+  name_en: "Махачкала"
+  country_id: "34"
+
+city_00000006:
+  id: 6
+  name_ru: "Санкт Петербург"
+  name_en: "Санкт Петербург"
+  country_id: "34"
+
+city_00000007:
+  id: 7
+  name_ru: "Лондон"
+  name_en: "Лондон"
+  country_id: "4"
+
+city_00000008:
+  id: 8
+  name_ru: "Бирмингем"
+  name_en: "Бирмингем"
+  country_id: "4"
+
+city_00000009:
+  id: 9
+  name_ru: "Сан паоло"
+  name_en: "Сан паоло"
+  country_id: "54"
+
+city_00000010:
+  id: 10
+  name_ru: "Чили город"
+  name_en: "Чили город"
+  country_id: "59"
+

@@ -44,6 +44,12 @@ items_settings = [
         "output_file" => "../test/fixtures/clubs.yml",
         "template_name" => "clubs",
         "required_fields" => ['id','name_ru','name_en']
+    },
+# вселенные
+    {
+        #"source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=3&output=csv",
+        "output_file" => "../test/fixtures/universes.yml",
+        "template_name" => "universes"
     }
 ]
 
@@ -70,6 +76,20 @@ def generate_params data
   s.join("\n  ")
 end
 
+def create_universes settings
+  @counter = "00000000"
+  puts "======================================================="
+  puts "generate items metadata from template: #{settings}"
+
+  items = []
+  4000.times do |idx|
+    items << {"id" => idx.to_s} if idx > 0
+  end
+
+  result, rb_result = generate_items_list(items, settings["template_name"], nil)
+  puts "write items metadata #{settings["output_file"]}"
+  write_result(settings["output_file"], result)
+end
 
 if ARGV.empty?
   puts "***** Generating All *****"
@@ -82,6 +102,10 @@ puts "***** reading items *****"
 
 items_settings.each do |settings|
   if ARGV.empty? || ARGV.include?(settings["template_name"])
+    if settings["template_name"] == 'universes'
+      create_universes settings
+      break
+    end
     puts "#{settings["template_name"]} =>> downloading items from: #{settings["source_url"]}"
     #threads << Thread.new(settings) { |it|
     it = settings

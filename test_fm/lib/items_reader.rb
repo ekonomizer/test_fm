@@ -24,7 +24,7 @@ def read_items(settings)
   rescue
     body     = response.body
   end
-
+p body
   csv = CSV.parse(body)
 
   last_index = 0

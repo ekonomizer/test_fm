@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       raise "not have all params #{params}" if session['login'] && (!params['login'] || !params['password'])
       raise 'user with same user_id already created' if session['user_id'] != nil && !User.where(user_id: session['user_id']).empty?
       raise 'user with same login already created' if params['login'] && !User.where(login: params['login']).empty?
-      club = Club.find(params['club_id'])
+      club = UserClub.find(params['club_id'])
       raise "no club with #{params['club_id']} club_id" unless club
       raise "club is already used by user with id #{club.user_id}" if club.user_id
 
@@ -34,8 +34,11 @@ class UsersController < ApplicationController
       params.each_pair do |k,v|
         data[k] = v if %w(user_id login password manager base_career club_id).include? k
       end
+      user = User.create(data)
+      raise 'user invalid in create' unless user
+      club.user_id = user.id
+      club.save
 
-      raise 'user invalid in create' unless User.create(data)
 
 		end
   end
