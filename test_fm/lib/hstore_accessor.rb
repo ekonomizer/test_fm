@@ -14,9 +14,6 @@ module HstoreAccessor
 
 
         define_method(key) do
-          p 'key'
-          p key
-          p send(hstore_attribute)[key.to_s]
           result = send(hstore_attribute) && send(hstore_attribute)[key.to_s]
           if result.is_a?(String)
             eval(result)

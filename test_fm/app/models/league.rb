@@ -15,7 +15,7 @@ class League < ActiveRecord::Base
   after_save :reset_cache
 
   def self.cached_leagues
-    Rails.cache.fetch([League, NAME]) { League.all.to_a.unshift(nil) }
+    Rails.cache.fetch([League, NAME]) { League.all.order(:id).to_a.unshift(nil) }
   end
 
   def self.cached_count
@@ -25,7 +25,7 @@ class League < ActiveRecord::Base
   private
   def reset_cache
     Rails.cache.delete([League, NAME])
-    Rails.cache.fetch([League, NAME]) { League.all.to_a.unshift(nil) }
+    Rails.cache.fetch([League, NAME]) { League.all.order(:id).to_a.unshift(nil) }
     Rails.cache.delete([League, COUNT])
     Rails.cache.fetch([League, COUNT]) { League.count }
   end

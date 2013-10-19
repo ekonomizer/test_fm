@@ -13,4 +13,15 @@
 class Club < ActiveRecord::Base
 	belongs_to :country
   has_many :user_clubs
+
+
+  CLUBS = :clubs
+
+  #after_save :reset_cache
+
+  def self.cached_clubs
+    Rails.cache.fetch([Club, CLUBS]) { Club.all.order(:id).to_a.unshift(nil) }
+  end
+
+
 end

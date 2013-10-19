@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  include ClubsHelper
 =begin
 	def create
 		logger.info {'USR CREATE'}
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 		@user = User.new(params[:user])
 
 		respond_to do |format|
-			if @user.save
+			if @user.save!
 				format.html { redirect_to '/init/scene', notice: 'Product was successfully created.' }
 				format.json { render json: @user, status: :created, location: @user }
 			else
@@ -21,26 +21,33 @@ class UsersController < ApplicationController
 =end
 
 	def create
-		if session['user_id'] || session['login']
-      raise "not have all params #{params}" if !params['base_career'] || !params['club_id'] || !params['manager']
-      raise "not have all params #{params}" if session['login'] && (!params['login'] || !params['password'])
-      raise 'user with same user_id already created' if session['user_id'] != nil && !User.where(user_id: session['user_id']).empty?
-      raise 'user with same login already created' if params['login'] && !User.where(login: params['login']).empty?
-      club = UserClub.find(params['club_id'])
-      raise "no club with #{params['club_id']} club_id" unless club
-      raise "club is already used by user with id #{club.user_id}" if club.user_id
 
-      data = {}
-      params.each_pair do |k,v|
-        data[k] = v if %w(user_id login password manager base_career club_id).include? k
+    @@mutex.synchronize do
+      if session['user_id'] || session['login']
+        raise "not have all params #{params}" if !params['base_career'] || !params['club_id'] || !params['manager']
+        raise "not have all params #{params}" if session['login'] && (!params['login'] || !params['password'])
+        raise 'user with same user_id already created' if session['user_id'] != nil && !User.where(user_id: session['user_id']).empty?
+        raise 'user with same login already created' if params['login'] && !User.where(login: params['login']).empty?
+        club = UserClub.find(params['club_id'])
+        raise "no club with #{params['club_id']} club_id" unless club
+        raise "club is already used by user with id #{club.user_id}" if club.user_id
+        new_clubs = nil
+        if club.user_id
+          data = {}
+          params.each_pair do |k,v|
+            data[k] = v if %w(user_id login password manager base_career club_id).include? k
+          end
+          user = User.create(data)
+          raise 'user invalid in create' unless user
+          club.user_id = user.id
+          club.save!
+        else
+          new_clubs = get_free_clubs_response
+        end
+        render :json => {new_clubs: new_clubs}
       end
-      user = User.create(data)
-      raise 'user invalid in create' unless user
-      club.user_id = user.id
-      club.save
 
-
-		end
+    end
   end
 
   @@counter = 0

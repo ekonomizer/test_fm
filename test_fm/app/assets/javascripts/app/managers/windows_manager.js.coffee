@@ -46,11 +46,15 @@ class window.WindowsManager
         break
 
     show_window ||= new class_window()
-
-
     show_window.show()
     @showed_windows.push(show_window)
     #$("#"+name).toggle(1000) unless $("#"+name).is(':visible')
+
+  set_window_visible:(name)->
+    $("#"+name).toggle(1000) unless $("#"+name).is(':visible')
+
+  create_bottom_menu:()->
+    @bottom_menu = new BottomMenu()
 
   close_window:(class_window)->
     for showed_window in @showed_windows

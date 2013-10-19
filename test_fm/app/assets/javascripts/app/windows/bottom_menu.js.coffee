@@ -53,7 +53,7 @@ class window.BottomMenu extends BaseWindow
     @update()
 
   update:->
-    @visible($("#auth_window") == null)
+    @visible(true)
 
   distance:(x0, y0, x1, y1)->
     xDiff = x1-x0;

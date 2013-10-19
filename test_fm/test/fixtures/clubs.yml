@@ -152,22 +152,30 @@ club_00000019:
 
 club_00000020:
   id: 20
+  name_ru: "Гринвич"
+  name_en: "Гринвич"
+  city_id: "8"
+  country_id: "4"
+  division: "3"
+
+club_00000021:
+  id: 21
   name_ru: "Реал бр"
   name_en: "Реал бр"
   city_id: "9"
   country_id: "54"
   division: "1"
 
-club_00000021:
-  id: 21
+club_00000022:
+  id: 22
   name_ru: "Валенсия бр"
   name_en: "Валенсия бр"
   city_id: "9"
   country_id: "54"
   division: "2"
 
-club_00000022:
-  id: 22
+club_00000023:
+  id: 23
   name_ru: "Чили бр"
   name_en: "Чили бр"
   city_id: "10"

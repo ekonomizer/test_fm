@@ -1,29 +1,31 @@
-country_00000004:
+---
+countries_00000001:
   id: 4
-  name_ru: "Англия"
-  name_en: "England"
+  name_ru: Англия
+  name_en: England
   league_id: 1
-
-country_00000020:
+  divisions: 3
+countries_00000002:
   id: 20
-  name_ru: "Италия"
-  name_en: "Italy"
+  name_ru: Италия
+  name_en: Italy
   league_id: 1
-
-country_00000034:
+  divisions: 2
+countries_00000003:
   id: 34
-  name_ru: "Россия"
-  name_en: "Russia"
+  name_ru: Россия
+  name_en: Russia
   league_id: 1
-
-country_00000054:
+  divisions: 2
+countries_00000004:
   id: 54
-  name_ru: "Бразилия"
-  name_en: "Brazil"
+  name_ru: Бразилия
+  name_en: Brazil
   league_id: 2
-
-country_00000059:
+  divisions: 2
+countries_00000005:
   id: 59
-  name_ru: "Чили"
-  name_en: "Chile"
+  name_ru: Чили
+  name_en: Chile
   league_id: 2
+  divisions: 1
