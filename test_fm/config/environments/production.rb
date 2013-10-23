@@ -106,6 +106,7 @@ TestFm::Application.configure do
   config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => '*',
                                              'Access-Control-Request-Method' => '*',
                                              'Header-Name' => 'Header-Value',
-                                             'X-Frame-Options' => 'ALLOW-FROM http://api.vk.com' }
-
+                                             'X-Frame-Options' => 'ALLOW-FROM http://api.vk.com',
+                                             'X-XSS-Protection' => '1; mode=block',
+                                            'X-Content-Type-Options' => 'nosniff'}
 end

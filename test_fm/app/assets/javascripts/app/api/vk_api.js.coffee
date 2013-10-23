@@ -2,7 +2,7 @@ class window.VkApi extends SocialsApi
 
   on_loaded:=>
     VK.init(@on_init)
-    super
+    super #вызов суппер дублирует @on_init
 
   api_url:->
     window.config.api_url('vk')

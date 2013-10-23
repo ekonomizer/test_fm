@@ -3,7 +3,7 @@ class window.Config
   constructor:->
     window.server_params ||= {}
     window.texts = new Texts()
-    window.path = 'http://0.0.0.0:3000/'
+    window.path = 'http://localhost:3000/'
 
   user_id:->
     window.social_api.flash_vars['viewer_id'] if window.social_api && window.social_api.flash_vars

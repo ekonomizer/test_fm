@@ -19,7 +19,7 @@ TestFm::Application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  # Print deprecation notices to the Rails logger.
+  # Print deprecation notices to the Rails logger.session_store
   config.active_support.deprecation = :log
   config.log_level = :debug
   # Raise an error on page load if there are pending migrations
@@ -33,5 +33,7 @@ TestFm::Application.configure do
   config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => '*',
                                              'Access-Control-Request-Method' => '*',
                                              'Header-Name' => 'Header-Value',
-                                             'X-Frame-Options' => 'ALLOW-FROM http://api.vk.com' }
+                                             'X-Frame-Options' => 'ALLOW-FROM http://api.vk.com',
+                                             'X-XSS-Protection' => '1; mode=block',
+                                             'X-Content-Type-Options' => 'nosniff'}
 end

@@ -4,6 +4,7 @@ class window.Scene
     window.config = new Config()
     window.scene = this
     @init_api()
+    #$(document).bind("ajaxSend", @set_session_cockie);
     #@bottom_menu = new BottomMenu()
 
   init_api:->
@@ -15,6 +16,9 @@ class window.Scene
 
   after_init_api:=>
     $.getJSON(window.path + 'init/first_request', {viewer_id: window.config.user_id()}, @first_request_loaded)
+
+  set_session_cockie:(xhr)=>
+    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
 
   first_request_loaded:(e)=>
     alert('first_request_loaded')
@@ -31,7 +35,8 @@ class window.Scene
       @start_game()
 
   @start_game:->
-    alert('')
+    WindowsManager.get().create_bottom_menu()
+    alert('start_game')
     #WindowsManager.get().show_window(BottomMenu)
 
 
