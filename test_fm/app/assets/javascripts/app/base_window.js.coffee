@@ -39,7 +39,7 @@ class window.BaseWindow
     return @window.position({
       my: "right center",
       at: "left center",
-      of: "#content",
+      of: "#windows",
       collision: "none",
       using: animate_method
     })
@@ -48,7 +48,7 @@ class window.BaseWindow
     return @window.position({
       my: "left center",
       at: "right center",
-      of: "#content",
+      of: "#windows",
       collision: "none",
       using: animate_method
     });
@@ -57,7 +57,7 @@ class window.BaseWindow
     return @window.position({
       my: "center center",
       at: "center center",
-      of: "#content",
+      of: "#windows",
       using: @window_sliding_animate
     });
 

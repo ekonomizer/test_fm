@@ -3,12 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-
-
-
 #dock {
   display: none;
-  margin: 30px auto;
+  margin: 0px auto;
   top: 0px;
   width: 100%;
   text-align: center;
@@ -65,7 +62,7 @@
     }
 
     a {
-      height: 153px;
+      height: 93px;
       width: 48px;
       display: inline-block;
       text-align: center;
@@ -97,7 +94,7 @@
 
         margin: 0px auto;
 
-        top: 17px;
+        top: -30px;
 
         border-radius: 10px;
         -moz-border-radius: 10px;

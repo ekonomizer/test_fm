@@ -23,19 +23,22 @@ class UsersController < ApplicationController
 	def create
 
     @@mutex.synchronize do
-      if session['user_id'] || session['login']
+      user_id = session['user_id']
+      login = session['login']
+      if user_id || login
         raise "not have all params #{params}" if !params['base_career'] || !params['club_id'] || !params['manager']
-        raise "not have all params #{params}" if session['login'] && (!params['login'] || !params['password'])
-        raise 'user with same user_id already created' if session['user_id'] != nil && !User.where(user_id: session['user_id']).empty?
+        raise "not have all params #{params}" if login && (!params['login'] || !params['password'])
+        raise 'user with same user_id already created' if user_id != nil && !User.where(user_id: user_id).empty?
         raise 'user with same login already created' if params['login'] && !User.where(login: params['login']).empty?
         club = UserClub.find(params['club_id'])
         raise "no club with #{params['club_id']} club_id" unless club
         raise "club is already used by user with id #{club.user_id}" if club.user_id
         new_clubs = nil
-        if club.user_id
+        unless club.user_id
           data = {}
+          data['user_id'] = user_id if user_id
           params.each_pair do |k,v|
-            data[k] = v if %w(user_id login password manager base_career club_id).include? k
+            data[k] = v if %w(login password manager base_career club_id).include? k
           end
           user = User.create(data)
           raise 'user invalid in create' unless user

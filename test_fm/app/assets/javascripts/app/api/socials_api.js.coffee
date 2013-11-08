@@ -2,7 +2,6 @@ class window.SocialsApi
   @flash_vars: {}
 
   constructor:(callback)->
-    alert(callback)
     @on_api_load = callback
     @succes_initialization = false
     @requests = []

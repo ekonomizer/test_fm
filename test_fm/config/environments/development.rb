@@ -30,10 +30,13 @@ TestFm::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   #config.serve_static_assets = false
+  #config.force_ssl = true
   config.action_dispatch.default_headers = { 'Access-Control-Allow-Origin' => '*',
                                              'Access-Control-Request-Method' => '*',
                                              'Header-Name' => 'Header-Value',
                                              'X-Frame-Options' => 'ALLOW-FROM http://api.vk.com',
                                              'X-XSS-Protection' => '1; mode=block',
+#                                             'Strict Transport Security' => 'max-age=0',
                                              'X-Content-Type-Options' => 'nosniff'}
+  #config.middleware.insert_before ActionDispatch::Static, Rack::SSL, :exclude => proc { |env| env['HTTPS'] != 'on' }
 end

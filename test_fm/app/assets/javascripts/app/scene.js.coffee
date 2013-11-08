@@ -21,22 +21,24 @@ class window.Scene
     xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
 
   first_request_loaded:(e)=>
-    alert('first_request_loaded')
+    #alert('first_request_loaded')
     window.server_params = e
     #window.owner = new User()
     #@server_requests_service = new ServerRequestsService
     windows_manager = WindowsManager.get()
-
+    WindowsManager.get().show_window(DesktopWindow)
+    return
     if window.server_params.without_social
       windows_manager.show_window(LoginWithoutSocialWindow)
     else if window.server_params.is_new_user
       windows_manager.show_window(AuthWindow)
     else if window.server_params.can_start
-      @start_game()
+      Scene.start_game()
 
   @start_game:->
     WindowsManager.get().create_bottom_menu()
-    alert('start_game')
+    WindowsManager.get().show_window(DesktopWindow)
+    #alert('start_game')
     #WindowsManager.get().show_window(BottomMenu)
 
 
