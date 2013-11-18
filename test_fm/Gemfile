@@ -8,7 +8,7 @@ gem 'dalli'
 gem 'jquery-ui-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-gem 'puma'
+#gem 'puma'
 
 gem 'rack-mini-profiler'
 

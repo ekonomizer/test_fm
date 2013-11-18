@@ -9,12 +9,13 @@ class window.SocialsApi
     $.getScript(@api_url(), @on_loaded)
 
   on_loaded:=>
-    @on_api_load()
+
 
   on_init:=>
     @set_flash_vars()
     @succes_initialization = true
     @call_requests()
+    @on_api_load()
 
   set_flash_vars:->
     #узнаём flashVars, переданные приложению GET запросом.
@@ -39,7 +40,7 @@ class window.SocialsApi
   @get_api:->
     api_url = Utils.parse_url_query()['api_url']
     switch api_url
-      when "http://api.vk.com/api.php" then VkApi
+      when window.protocol+"api.vk.com/api.php" then VkApi
       else null
 
   api_url:->

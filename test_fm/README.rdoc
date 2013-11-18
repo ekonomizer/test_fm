@@ -36,3 +36,5 @@ rake db:fixtures:extract FIXTURES=foo,bar #export from db
 rake db:fixtures:load FIXTURES=foo,bar #import to db
 rake db:fixtures:load FIXTURES=cities,countries,clubs,leagues,universes
 ruby lib/generator.rb universes
+
+ssl connecting - bundle exec ruby bin/rails_https s

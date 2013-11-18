@@ -3,6 +3,8 @@ class InitController < ApplicationController
   caches_page :load_app if Rails.env == 'production'
 
   def load_app
+    @server_params ||= {}
+    @server_params['ssl'] =  Rails.env.split('_').last == 'ssl'
 =begin
     Rack::MiniProfiler.step("fetch projects") do
      p Country.cached_countries
