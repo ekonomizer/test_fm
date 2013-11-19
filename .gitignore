@@ -12,11 +12,11 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-../workspace/*
+/workspace/*
 /log/*.log
 /tmp
 Gemfile.lock
-#config/database.yml
+config/database.yml
 
 db/schema.rb
 .idea
