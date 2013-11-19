@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'actionpack-page_caching'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 gem 'pg'
@@ -10,7 +11,6 @@ gem 'jquery-ui-rails'
 gem 'jquery-rails'
 #gem 'puma'
 
-gem 'rack-mini-profiler'
 
 gem 'dimensions-rails'
 # Use SCSS for stylesheets
@@ -33,11 +33,11 @@ end
 
 group :development do
 	gem 'annotate'
+  gem 'rack-mini-profiler'
 end
 
 group :production, :alpha do
   #gem 'rack-cache'
-  gem 'actionpack-page_caching'
 end
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

@@ -1,6 +1,6 @@
 class InitController < ApplicationController
 
-  caches_page :load_app if Rails.env == 'production'
+  caches_page :load_app if Rails.env.include?('production')
 
   def load_app
     @server_params ||= {}

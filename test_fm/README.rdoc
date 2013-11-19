@@ -37,4 +37,10 @@ rake db:fixtures:load FIXTURES=foo,bar #import to db
 rake db:fixtures:load FIXTURES=cities,countries,clubs,leagues,universes
 ruby lib/generator.rb universes
 
+https server
 ssl connecting - bundle exec ruby bin/rails_https s
+
+
+Загрузки/google_appengine/appcfg.py update fm/test_fm/public/
+http://fmassets2.appspot.com/
+http://fmassets.appspot.com/
