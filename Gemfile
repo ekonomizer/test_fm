@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 gem 'actionpack-page_caching'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
-gem 'engineyard'
 gem 'pg'
 #gem 'activerecord-jdbcpostgresql-adapter', '~>1.3.0.beta2'
 gem 'dalli'
@@ -33,6 +32,7 @@ group :assets do
 end
 
 group :development do
+  gem 'engineyard'
 	gem 'annotate'
   gem 'rack-mini-profiler'
 end
