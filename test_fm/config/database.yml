@@ -1,0 +1,58 @@
+development:
+#  adapter: jdbcpostgresql
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+  database: fm_development_1
+  username: ekonomizer
+  password: 1
+
+development_ssl:
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+  database: fm_development_1
+  username: ekonomizer
+  password: 1
+
+alpha:
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+  database: fm_development_1
+  username: ekonomizer
+  password: 1
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+  database: fm_development_1
+  username: ekonomizer
+  password: 1
+  pool: 15
+  timeout: 5000
+
+production_ssl:
+  adapter: postgresql
+  encoding: unicode
+  port: 5432
+  host: localhost
+  database: fm_development_1
+  username: ekonomizer
+  password: 1
+  pool: 15
+  timeout: 5000
+
+
+test:
+  adapter: postgresql
+  port: 5432
+  host: localhost
+  database: fm_test_1
+  username: ekonomizer
+  password: 1

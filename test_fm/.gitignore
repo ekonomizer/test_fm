@@ -16,7 +16,7 @@
 /log/*.log
 /tmp
 Gemfile.lock
-config/database.yml
+#config/database.yml
 
 db/schema.rb
 .idea
