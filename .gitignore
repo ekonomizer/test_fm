@@ -15,7 +15,8 @@
 /workspace/*
 /log/*.log
 /tmp
-config/database.yml
+/config/database.yml
+/config/*.yml
 
 db/schema.rb
 .idea

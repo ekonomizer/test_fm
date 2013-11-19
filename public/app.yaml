@@ -12,6 +12,6 @@ handlers:
 - url: /assets/(.*\.(png|jpeg|jpg|gif|ico))
   script: cacheheaders.py
 
-#Загрузки/google_appengine/appcfg.py update fm/test_fm/public/
+#Загрузки/google_appengine/appcfg.py update fm/public/
 #http://fmassets2.appspot.com/
 #http://fmassets.appspot.com/

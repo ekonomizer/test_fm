@@ -4,7 +4,7 @@ class InitController < ApplicationController
 
   def load_app
     @server_params ||= {}
-    @server_params['ssl'] =  Rails.env.split('_').last == 'ssl'
+    @server_params['env'] =  Rails.env
 =begin
     Rack::MiniProfiler.step("fetch projects") do
      p Country.cached_countries
