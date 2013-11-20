@@ -40,7 +40,7 @@ class window.SocialsApi
   @get_api:->
     api_url = Utils.parse_url_query()['api_url']
     switch api_url
-      when window.protocol+"api.vk.com/api.php" then VkApi
+      when "//api.vk.com/api.php" then VkApi
       else null
 
   api_url:->

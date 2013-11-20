@@ -11,5 +11,5 @@ def init
   end
 end
 
-#init
+init
 p 'CACHE INITIALIZED'
