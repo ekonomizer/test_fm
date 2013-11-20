@@ -12,7 +12,7 @@ class window.Config
 
   set_env:->
     window.path = switch window.server_params.env
-      when "development" then '//ec2-54-204-28-218.compute-1.amazonaws.com/'
+      when "development" then '//localhost:3000/'
       when "development_ssl" then '//localhost:3001/'
       when "production" then '//ec2-54-204-28-218.compute-1.amazonaws.com/'
       when "production_ssl" then '//ec2-54-204-28-218.compute-1.amazonaws.com/'
