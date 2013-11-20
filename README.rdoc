@@ -44,3 +44,7 @@ ssl connecting - bundle exec ruby bin/rails_https s
 Загрузки/google_appengine/appcfg.py update fm/test_fm/public/
 http://fmassets2.appspot.com/
 http://fmassets.appspot.com/
+
+ssh tunel to db
+ssh -L 5433:127.0.0.1:5432 \
+deploy@ec2-54-204-28-218.compute-1.amazonaws.com
