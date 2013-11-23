@@ -26,8 +26,9 @@ class window.Scene
     #window.owner = new User()
     #@server_requests_service = new ServerRequestsService
     windows_manager = WindowsManager.get()
-    WindowsManager.get().show_window(DesktopWindow)
-    return
+    #alert('!')
+    #WindowsManager.get().show_window(DesktopWindow)
+    #return
     if window.server_params.without_social
       windows_manager.show_window(LoginWithoutSocialWindow)
     else if window.server_params.is_new_user

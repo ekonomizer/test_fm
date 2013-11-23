@@ -17,10 +17,16 @@ class window.DesktopWindow extends BaseWindow
     @button_next.html(window.texts.next)
     @button_next.click(@on_next_button_click)
 
+    @close_button = $("#close_button")
+    @close_button.click(@on_close_button_click)
+
     @coach_box = $("#desktop #first_box img")
     @boss_box = $("#desktop #second_box img")
     @coach_box.click(@on_img_box_click)
     @boss_box.click(@on_img_box_click)
+
+  on_close_button_click:=>
+    WindowsManager.get().close_window(DesktopWindow)
 
   on_next_button_click:=>
     if window.init_params && window.init_params.manager
