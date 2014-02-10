@@ -31,14 +31,49 @@
   });
   });
 ###
+Function::property = (prop, desc) ->
+  Object.defineProperty @prototype, prop, desc
 
 class window.User
 
-  constructor:->
+  # user_data {"club_id"=>"151", "manager"=>"coach", "base_career"=>"footballer"}
+  constructor:(user_data)->
     @init()
+    @data = if user_data
+      {manager: user_data.manager, club_id: user_data.club_id, base_career: user_data.base_career, club_id: user_data.club_id, division: user_data.division }
+    else
+      {}
+
+    if @data.club_id
+      @data.club = {}
+      @data.country = {}
+      ItemsManager.get().load_clubs_by_ids(@data.club_id, @on_club_item_loaded)
 
   init:->
     window.social_api.get_profiles(window.config.user_id(), @on_profiles_load)
 
   on_profiles_load:(data)->
+    @last_name = data[0].last_name
+    @first_name = data[0].first_name
+    @photo_url = data[0].photo
+
+
+  on_club_item_loaded:(clubs)=>
+    @data.club = clubs[@data.club_id]
+    ItemsManager.get().load_countries_by_ids(@data.club.country_id, @on_country_item_loaded)
+
+
+
+  on_country_item_loaded:(countries)=>
+    @data.country = countries[@data.club.country_id]
+    desktop = Scene.get_desktop()
+    desktop.update() if desktop
+
+  Object.defineProperties @prototype,
+    club:
+      get: -> @data.club
+
+  Object.defineProperties @prototype,
+    country:
+      get: -> @data.country
 

@@ -32,9 +32,9 @@ Please feel free to use a different markup language if you do not plan to run
 #require File.join(AdapterPath,"/#{adapter}_adapter") #Handle JRuby jdbc adapters.
 
 annotate --exclude tests,fixtures,factories
-rake db:fixtures:extract FIXTURES=foo,bar #export from db
-rake db:fixtures:load FIXTURES=foo,bar #import to db
-rake db:fixtures:load FIXTURES=cities,countries,clubs,leagues,universes
+rake db:fixtures:extract FIXTURES=clubs,countries #export from db
+rake db:fixtures:load_and_create_json clubs,countries #import to db
+rake db:fixtures:load_and_create_json cities,countries,clubs,leagues,universes
 ruby lib/generator.rb universes
 
 https server

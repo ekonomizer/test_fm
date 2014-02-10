@@ -18,4 +18,8 @@ class window.VkApi extends SocialsApi
     VK.callMethod("resizeWindow", coords.width, coords.height) if @succes_initialization
 
   get_profiles:(uids, callback)->
-    @add_request_in_queue_and_call({name: "get_profiles", params: {uids: uids, fields: "photo_big"}, callback: callback})
+    @add_request_in_queue_and_call({name: "get_profiles", params: {uids: uids, fields: "first_name,last_name,photo"}, callback: (data)->
+      if data.response
+        callback(data.response)
+    })
+

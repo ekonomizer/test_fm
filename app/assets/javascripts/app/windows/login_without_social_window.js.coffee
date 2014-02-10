@@ -38,9 +38,13 @@ class window.LoginWithoutSocialWindow extends BaseWindow
       @show_alarm_message()
       return
     if @sign_in_mode
-      $.getJSON(window.path + 'auth/sign_in', {login: @login_input.val(), password: @pass_input.val()}, @on_sign_in)
+      request = {action: 'auth/sign_in', params: {login: @login_input.val(), password: @pass_input.val()}, callback: @on_sign_in}
+      window.server.add_request_in_queue_and_call(request)
+      #$.getJSON(window.path + 'auth/sign_in', {login: @login_input.val(), password: @pass_input.val()}, @on_sign_in)
     else
-      $.getJSON(window.path + 'auth/login', {login: @login_input.val(), password: @pass_input.val()}, @on_login)
+      request = {action: 'auth/login', params: {login: @login_input.val(), password: @pass_input.val()}, callback: @on_login}
+      window.server.add_request_in_queue_and_call(request)
+      #$.getJSON(window.path + 'auth/login', {login: @login_input.val(), password: @pass_input.val()}, @on_login)
 
   on_sign_in:(e)=>
     if e.signed_in

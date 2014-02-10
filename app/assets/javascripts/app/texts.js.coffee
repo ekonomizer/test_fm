@@ -33,3 +33,5 @@ class window.Texts
     @need_login_in = "Если Вы уже зарегестрированны, перейдите ко входу"
     @need_fill_input = "Поле нужно заполнить"
     @login_already_busy = "Логин уже занят"
+
+    @club_name = "Клуб: "

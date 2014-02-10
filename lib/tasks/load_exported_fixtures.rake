@@ -49,3 +49,12 @@ namespace :db do
     end
   end
 end
+
+namespace :db do
+  namespace :fixtures do
+    task :load_and_create_json => :environment do
+      sh "rake db:fixtures:load FIXTURES=#{ARGV[1]}"
+      Rake::Task["fm:yaml_to_json"].invoke(ARGV[1])
+    end
+  end
+end

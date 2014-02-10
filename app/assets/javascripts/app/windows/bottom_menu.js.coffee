@@ -51,6 +51,25 @@ class window.BottomMenu extends BaseWindow
     @animating = false
     @redrawReady = false
     @update()
+    @init_click_handlers()
+
+
+  init_click_handlers:->
+    $('#b_m_address').click(@on_address_click)
+    $('#b_m_band').click(@on_band_click)
+    $('#b_m_calendar').click(@on_calendar_click)
+
+
+  on_address_click:=>
+    alert('1')
+    windows_manager = WindowsManager.get()
+    windows_manager.show_window(AuthWindow)
+
+  on_band_click:=>
+    #alert('2')
+
+  on_calendar_click:=>
+    #alert('3')
 
   update:->
     @visible(true)

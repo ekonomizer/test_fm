@@ -28,6 +28,8 @@ body{
     height: 635px;
     overflow: hidden;
     position: relative;
+    z-index: 2;
+    margin-top: -179px;
 }
 #bottomMenu {
     height: 190px;
@@ -36,6 +38,7 @@ body{
     bottom: 0;
     width: 100%;
     /*margin: 0px auto;*/
+    z-index: 3;
 }
 
 /* Jqueryui для tooltip

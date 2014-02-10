@@ -24,7 +24,9 @@ class window.FreeTeamsWindow extends BaseWindow
 
 
   show:->
-    $.getJSON(window.path + 'clubs/free_clubs', {}, (e)=>@on_clubs_loaded(e);super())
+    request = {action: 'clubs/free_clubs', params: {}, callback: (e)=>@on_clubs_loaded(e);super()}
+    window.server.add_request_in_queue_and_call(request)
+    #$.getJSON(window.path + 'clubs/free_clubs', {}, (e)=>@on_clubs_loaded(e);super())
 
   on_clubs_loaded:(e)=>
     @clubs = []
@@ -56,7 +58,9 @@ class window.FreeTeamsWindow extends BaseWindow
   on_next_button_click:=>
     if window.init_params && window.init_params.club_id
       #data = $.toJSON(window.init_params)
-      $.getJSON(window.path + 'users/create', window.init_params, @on_team_accept)
+      request = {action: 'users/create', params: window.init_params, callback: @on_team_accept}
+      window.server.add_request_in_queue_and_call(request)
+      #$.getJSON(window.path + 'users/create', window.init_params, @on_team_accept)
     else
       @error_text.text(window.texts.need_choise_club)
       @error_text.addClass('text_warninig')

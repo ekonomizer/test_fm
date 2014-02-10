@@ -18,8 +18,15 @@ class window.Config
       when "production_ssl" then '//ec2-54-204-28-218.compute-1.amazonaws.com/'
       else '//localhost:3000/'
 
+    window.img_path = switch window.server_params.env
+      when "development" then '//localhost:3000/assets/'
+      when "development_ssl" then '//localhost:3001/assets/'
+      when "production" then '//ec2-54-204-28-218.compute-1.amazonaws.com/'
+      when "production_ssl" then '//ec2-54-204-28-218.compute-1.amazonaws.com/'
+      else '//localhost:3000/'
+
   user_id:->
-    window.social_api.flash_vars['viewer_id'] if window.social_api && window.social_api.flash_vars
+    window.social_api.flash_vars['user_id'] if window.social_api && window.social_api.flash_vars
 
   api_url:(api_name)->
     switch api_name
