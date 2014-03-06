@@ -5,6 +5,7 @@ class window.Desktop
 
   init:->
     @window = $("#desktop")
+    WindowsManager.get().set_window_visible('desktop')
     @club_icon = $("#club_icon")
     @load_club_icon();
     @club_icon = $("#club_icon")

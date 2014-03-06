@@ -5,6 +5,7 @@ class window.ChoiceBaseCareerWindow extends BaseWindow
 
   init:->
     @window = $("#choice_base_career_window")
+    @always_on_top = true
     @bonus_text = $("#choice_base_career_window #description")
     @bonus_text .text(window.texts.choice_base_career_default_bonus)
     @title = $("#choice_base_career_window #lable")

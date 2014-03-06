@@ -36,6 +36,7 @@ class window.SocialsApi
           @resize_window(request.params)
         when 'get_profiles'
           VK.api("getProfiles", request.params, request.callback) if @succes_initialization
+    @requests = [] #TODO: need pop request system
 
   @get_api:->
     api_url = Utils.parse_url_query()['api_url']

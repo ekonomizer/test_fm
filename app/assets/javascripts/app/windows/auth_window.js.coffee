@@ -5,6 +5,7 @@ class window.AuthWindow extends BaseWindow
 
   init:->
     @window = $("#auth_window")
+    @always_on_top = true
     @description = $("#auth_window #description")
     @description.text(window.texts.auth_window_description)
     @title = $("#auth_window #lable")

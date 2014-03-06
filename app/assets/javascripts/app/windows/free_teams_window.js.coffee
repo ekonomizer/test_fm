@@ -5,6 +5,7 @@ class window.FreeTeamsWindow extends BaseWindow
 
   init:->
     @window = $("#free_teams_window")
+    @always_on_top = true
     @scrollable_div = '#jp-container'
     @clubs_container = $("#selectable")
 
@@ -24,9 +25,9 @@ class window.FreeTeamsWindow extends BaseWindow
 
 
   show:->
-    request = {action: 'clubs/free_clubs', params: {}, callback: (e)=>@on_clubs_loaded(e);super()}
-    window.server.add_request_in_queue_and_call(request)
-    #$.getJSON(window.path + 'clubs/free_clubs', {}, (e)=>@on_clubs_loaded(e);super())
+    #request = {action: 'clubs/free_clubs', params: {}, callback: cb}
+    #window.server.add_request_in_queue_and_call(request)
+    $.getJSON(window.path + 'clubs/free_clubs', {}, (e)=>@on_clubs_loaded(e);super())
 
   on_clubs_loaded:(e)=>
     @clubs = []

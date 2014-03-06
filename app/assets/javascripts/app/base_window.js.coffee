@@ -2,6 +2,7 @@ class window.BaseWindow
 
   constructor:->
     @window = null
+    @always_on_top = false
 
   visible:(val)->
     return unless @window

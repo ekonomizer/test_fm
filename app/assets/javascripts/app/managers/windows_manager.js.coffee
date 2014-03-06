@@ -17,7 +17,12 @@ class window.WindowsManager
     @windows_classes = [AuthWindow, ChoiceBaseCareerWindow, FreeTeamsWindow, LoginWithoutSocialWindow]
     @windows = []
     @set_default_windows_positions()
+    @set_default_z_index()
     #console.log "#{name} initialized"
+
+  set_default_z_index:->
+    for obj in @windows
+      obj.window.css('z-index', 0)
 
   set_default_windows_positions:->
     for window_class in @windows_classes
@@ -48,7 +53,15 @@ class window.WindowsManager
     show_window ||= new class_window()
     show_window.show()
     @showed_windows.push(show_window)
+    @set_z_index(show_window)
     #$("#"+name).toggle(1000) unless $("#"+name).is(':visible')
+
+  set_z_index:(window)->
+    z_index = if window.always_on_top
+      50
+    else
+      @showed_windows.length
+    window.window.css('z-index', z_index)
 
   set_window_visible:(name)->
     $("#"+name).toggle(1000) unless $("#"+name).is(':visible')
@@ -61,4 +74,5 @@ class window.WindowsManager
       if (showed_window instanceof (class_window))
         showed_window.close()
         @showed_windows.pop(showed_window)
+        showed_window.window.css('z-index', 0)
         return

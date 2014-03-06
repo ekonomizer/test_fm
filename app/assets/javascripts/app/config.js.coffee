@@ -3,6 +3,7 @@ class window.Config
   constructor:->
     window.server_params ||= {}
     window.texts = new Texts()
+    #game_protocol = location.protocol;
     window.protocol = if window.server_params.ssl
       'https://'
     else

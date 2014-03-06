@@ -25,7 +25,7 @@ class window.Scene
   first_request_loaded:(e)=>
     alert('first_request_loaded')
     window.server_params = e
-    window.owner = new User(window.server_params.user_stats)
+    #window.owner = new User(window.server_params.user_stats)
     #@server_requests_service = new ServerRequestsService
     ItemsManager.get()
     windows_manager = WindowsManager.get()

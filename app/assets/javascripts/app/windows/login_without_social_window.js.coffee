@@ -5,6 +5,7 @@ class window.LoginWithoutSocialWindow extends BaseWindow
 
   init:->
     @sign_in_mode = false
+    @always_on_top = true
     @window = $("#login_without_social_window")
     @title = $("#login_without_social_window #lable")
     @title.html(window.texts.login_without_social_window_log_in)
