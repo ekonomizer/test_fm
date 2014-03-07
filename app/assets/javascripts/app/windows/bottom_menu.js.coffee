@@ -61,7 +61,6 @@ class window.BottomMenu extends BaseWindow
 
 
   on_address_click:=>
-    alert('1')
     windows_manager = WindowsManager.get()
     windows_manager.show_window(AuthWindow)
 

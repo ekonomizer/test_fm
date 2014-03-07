@@ -46,6 +46,7 @@ class InitController < ApplicationController
     cached_club = Club.cached_clubs[user_club.club_id]
     data['club_id'] = cached_club.id
     data['division'] = user_club.division
+    data['coins'] = user_club.coins
     data
   end
 end

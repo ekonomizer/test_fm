@@ -6,6 +6,7 @@
 #  name_ru   :string(255)      not null
 #  name_en   :string(255)      not null
 #  league_id :integer          not null
+#  divisions :integer
 #
 
 class Country < ActiveRecord::Base

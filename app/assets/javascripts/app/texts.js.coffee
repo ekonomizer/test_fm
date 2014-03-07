@@ -35,3 +35,7 @@ class window.Texts
     @login_already_busy = "Логин уже занят"
 
     @club_name = "Клуб: "
+    @dont_hired = "пока не нанят"
+    @coach = "Тренер: "
+    @director = "Директор: "
+    @money = "Денег: "

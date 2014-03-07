@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   include Authentication
 
   before_filter :miniprofiler
-  #before_action :check_auth
+  before_action :check_auth
 
   private
 

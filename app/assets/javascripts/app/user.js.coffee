@@ -39,6 +39,8 @@ class window.User
   # user_data {"club_id"=>"151", "manager"=>"coach", "base_career"=>"footballer"}
   constructor:(user_data)->
     @init()
+    @last_name = 'Горелов'
+    @first_name = "Андрей"
     @data = if user_data
       {manager: user_data.manager, club_id: user_data.club_id, base_career: user_data.base_career, club_id: user_data.club_id, division: user_data.division }
     else
@@ -46,6 +48,7 @@ class window.User
 
     if @data.club_id
       @data.club = {}
+      @data.club.coins = user_data.coins
       @data.country = {}
       ItemsManager.get().load_clubs_by_ids(@data.club_id, @on_club_item_loaded)
 
@@ -59,10 +62,13 @@ class window.User
 
 
   on_club_item_loaded:(clubs)=>
+    coins = @data.club.coins
     @data.club = clubs[@data.club_id]
+    @data.club.coins = coins
     ItemsManager.get().load_countries_by_ids(@data.club.country_id, @on_country_item_loaded)
 
-
+  is_coach:->
+    @data.manager == "coach"
 
   on_country_item_loaded:(countries)=>
     @data.country = countries[@data.club.country_id]

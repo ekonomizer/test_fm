@@ -43,6 +43,7 @@ class UsersController < ApplicationController
           user = User.create(data)
           raise 'user invalid in create' unless user
           club.user_id = user.id
+          club.coins = ApplicationConfig.default_coins
           club.save!
         else
           new_clubs = get_free_clubs_response

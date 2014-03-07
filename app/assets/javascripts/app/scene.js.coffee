@@ -23,11 +23,10 @@ class window.Scene
     xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
 
   first_request_loaded:(e)=>
-    alert('first_request_loaded')
+    console.log 'first_request_loaded'
     window.server_params = e
-    #window.owner = new User(window.server_params.user_stats)
-    #@server_requests_service = new ServerRequestsService
-    ItemsManager.get()
+    window.owner = new User(window.server_params.user_stats)
+
     windows_manager = WindowsManager.get()
     if window.server_params.without_social
       windows_manager.show_window(LoginWithoutSocialWindow)

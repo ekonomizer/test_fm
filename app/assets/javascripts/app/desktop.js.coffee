@@ -8,11 +8,14 @@ class window.Desktop
     WindowsManager.get().set_window_visible('desktop')
     @club_icon = $("#club_icon")
     @load_club_icon();
-    @club_icon = $("#club_icon")
     @club_name = $("#club_name")
     @club_name.html(window.texts.club_name)
     @coach_name = $("#coach_name")
+    @coach_name.html(window.texts.coach + window.texts.dont_hired)
     @director_name = $("#director_name")
+    @director_name.html(window.texts.director + window.texts.dont_hired)
+    @user_coins = $("#user_coins")
+    @user_coins.html(window.texts.money)
 
 
   load_club_icon:->
@@ -25,7 +28,11 @@ class window.Desktop
 
 
   update:->
-
-    #alert(window.owner.data)
     @club_name.html(window.texts.club_name + window.owner.club.name_ru + ", " + "D" + window.owner.data.division + ", " + window.owner.country.name_ru)
+    if window.owner.is_coach()
+      @coach_name.html(window.texts.coach + window.owner.last_name + " " + window.owner.first_name)
+    else
+      @director_name.html(window.texts.director + window.texts.dont_hired)
+
+    @user_coins.html(window.texts.money + window.owner.club.coins)
 
