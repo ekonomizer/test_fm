@@ -37,6 +37,9 @@ rake db:fixtures:load_and_create_json clubs,countries #import to db
 rake db:fixtures:load_and_create_json cities,countries,clubs,leagues,universes
 ruby lib/generator.rb universes
 
+AFTER change DB(countries clubs match_dates) need execute: rake db:fixtures:load_and_create_json match_dates
+and then deploy json to google server
+
 https server
 ssl connecting - bundle exec ruby bin/rails_https s
 

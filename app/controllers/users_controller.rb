@@ -26,32 +26,51 @@ class UsersController < ApplicationController
       user_id = session['user_id']
       login = session['login']
       if user_id || login
-        raise "not have all params #{params}" if !params['base_career'] || !params['club_id'] || !params['manager']
+        raise "not have all params #{params}" if !params['base_career'] || !params['user_club_id'] || !params['manager']
         raise "not have all params #{params}" if login && (!params['login'] || !params['password'])
         raise 'user with same user_id already created' if user_id != nil && !User.where(user_id: user_id).empty?
-        raise 'user with same login already created' if params['login'] && !User.where(login: params['login']).empty?
-        club = UserClub.find(params['club_id'])
-        raise "no club with #{params['club_id']} club_id" unless club
-        raise "club is already used by user with id #{club.user_id}" if club.user_id
-        new_clubs = nil
-        unless club.user_id
-          data = {}
-          data['user_id'] = user_id if user_id
-          params.each_pair do |k,v|
-            data[k] = v if %w(login password manager base_career club_id).include? k
-          end
-          user = User.create(data)
-          raise 'user invalid in create' unless user
-          club.user_id = user.id
-          club.coins = ApplicationConfig.default_coins
-          club.save!
-        else
-          new_clubs = get_free_clubs_response
+
+        if params['login'] && !User.where(login: params['login']).empty?
+          p 'user with same login already created'
+          render :json => {user_busy: true}
+          return
         end
-        render :json => {new_clubs: new_clubs}
+
+        club = UserClub.find(params['user_club_id'])
+        raise "no club with #{params['user_club_id']} user_club_id" unless club
+        if club.user_id
+          p "club is already used by user with id #{club.user_id}"
+          render :json => {new_clubs: get_free_clubs_response}
+          return
+        end
+
+        data = {}
+        data['user_id'] = user_id if user_id
+        data['club_id'] = params['user_club_id']
+        params.each_pair do |k,v|
+          data[k] = v if %w(login password manager base_career).include? k
+        end
+        user = User.create(data)
+        raise 'user invalid in create' unless user
+        club.user_id = user.id
+        club.coins = ApplicationConfig.default_coins
+        club.save!
+
+        render :json => {success_create: true, user_stats: user_stats(club)}
       end
 
     end
+  end
+
+  def user_stats user_club
+    data = {}
+    cached_club = Club.cached_clubs[user_club.club_id]
+    data['calendar'] = Championship.matches_current_season(user_club)
+    data['club_id'] = cached_club.id
+    data['user_club_id'] = user_club.id
+    data['division'] = user_club.division
+    data['coins'] = user_club.coins
+    data
   end
 
   @@counter = 0

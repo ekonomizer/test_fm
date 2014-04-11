@@ -22,6 +22,7 @@ class window.Texts
     @free_teams_window_thief_bonus = "- Умеет лепить фигурки богов из мякишей хлеба."
     @free_teams_window_create_new_team = "Создать новую команду"
     @free_teams_window_team_used = "Извините этот клуб уже заняли, выберите другой"
+    @free_teams_window_login_used = "Извините этот логин уже заняли, нажмите еще раз далее, чтобы выбрать другой"
 
     @login_without_social_window_log_in = "Вход"
     @button_in = "Войти"
@@ -39,3 +40,5 @@ class window.Texts
     @coach = "Тренер: "
     @director = "Директор: "
     @money = "Денег: "
+    @last_match_text = "Последний матч:"
+    @next_matches_text = "Будущие матчи:"

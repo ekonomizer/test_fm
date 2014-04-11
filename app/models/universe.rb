@@ -15,10 +15,9 @@ class Universe < ActiveRecord::Base
 
   FILLED_UNIVERSE = 'filled_universe'
   DEFAULT_FILLED_UNIVERSE_ID = 1
-  DEFAULT_FILLED_COUNTRY_ID = 34
 
   def self.filled_universe
-
+    Universe.where(filled_now: '1').last
   end
 
   def self.get_universes_by_country_id value
@@ -26,18 +25,24 @@ class Universe < ActiveRecord::Base
     #Universe.where("data ? :value",value:'filled_country_id')
   end
 
+  #def self.cached_filled_universe
+  #  Rails.cache.fetch([Universe, FILLED_UNIVERSE]) { Universe.where(filled_now: '1').last }
+  #end
 
+  def self.create_next_universe
+    universe = self.filled_universe
+    if universe
+      next_universe = Universe.where("id > ?", universe.id).first
+      universe.filled_now = nil
+      universe.save
+    else
+      next_universe = Universe.find(DEFAULT_FILLED_UNIVERSE_ID)
+    end
 
-  def self.cached_filled_universe
-    Rails.cache.fetch([Universe, FILLED_UNIVERSE]) { Universe.where(filled_now: '1').last } || Universe.set_default_active_universe
-  end
-
-  def self.set_default_active_universe
-    universe = Universe.find(DEFAULT_FILLED_UNIVERSE_ID)
-    universe.filled_now = '1'
-    universe.filled_country_data = {DEFAULT_FILLED_COUNTRY_ID => 1}
-    universe.save
-    universe
+    next_universe.filled_now = '1'
+    #next_universe.filled_country_data = default_filled_country_data
+    next_universe.save
+    next_universe
   end
 
   private

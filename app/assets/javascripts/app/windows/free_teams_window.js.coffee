@@ -22,12 +22,21 @@ class window.FreeTeamsWindow extends BaseWindow
     @button_next = $("#free_teams_window #button_next")
     @button_next.html(window.texts.next)
     @button_next.click(@on_next_button_click)
+    #@sup = window.FreeTeamsWindow.__super__
 
 
   show:->
-    #request = {action: 'clubs/free_clubs', params: {}, callback: cb}
-    #window.server.add_request_in_queue_and_call(request)
-    $.getJSON(window.path + 'clubs/free_clubs', {}, (e)=>@on_clubs_loaded(e);super())
+    call_super = do (args=arguments) => => super(args...)
+    @super_show = ->
+      call_super()
+
+    @need_new_login = false
+    @error_text.text('')
+    @error_text.removeClass('text_warninig')
+
+    request = {action: 'clubs/free_clubs', params: {}, callback: @on_clubs_loaded }
+    window.server.add_request_in_queue_and_call(request)
+    #$.getJSON(window.path + 'clubs/free_clubs', {}, (e)=>@on_clubs_loaded(e);super())
 
   on_clubs_loaded:(e)=>
     @clubs = []
@@ -36,6 +45,7 @@ class window.FreeTeamsWindow extends BaseWindow
     @clubs_container.html(@li)
     @fill_clubs_container(e)
     @init_click_handlers()
+    @super_show()
 
   fill_clubs_container:(e)->
     for club in e
@@ -53,16 +63,23 @@ class window.FreeTeamsWindow extends BaseWindow
   select_club:(e)=>
     for club in @clubs
       if club.id == e.currentTarget.id
-        window.init_params.club_id = club.id
+        window.init_params.user_club_id = club.id
         break
 
   on_next_button_click:=>
-    if window.init_params && window.init_params.club_id
+    if @need_new_login
+      WindowsManager.get().close_window(FreeTeamsWindow)
+      WindowsManager.get().show_window(LoginWithoutSocialWindow)
+      @need_new_login = false
+      return
+
+    if window.init_params && window.init_params.user_club_id
       #data = $.toJSON(window.init_params)
       request = {action: 'users/create', params: window.init_params, callback: @on_team_accept}
       window.server.add_request_in_queue_and_call(request)
       #$.getJSON(window.path + 'users/create', window.init_params, @on_team_accept)
     else
+      alert('@@')
       @error_text.text(window.texts.need_choise_club)
       @error_text.addClass('text_warninig')
 
@@ -71,10 +88,15 @@ class window.FreeTeamsWindow extends BaseWindow
       @on_clubs_loaded(e['new_clubs'])
       @error_text.text(window.texts.free_teams_window_team_used)
       @error_text.addClass('text_warninig')
-    else
+    else if e['user_busy']
+      @error_text.text(window.texts.free_teams_window_login_used)
+      @error_text.addClass('text_warninig')
+      @need_new_login = true
+    else if e['success_create']
       WindowsManager.get().close_window(FreeTeamsWindow)
-      WindowsManager.get().create_bottom_menu()
-
+      for k,v of e.user_stats
+        window.init_params[k] = v
+      Scene.start_game()
 
   get_scrollable_div:->
     @scrollable_div

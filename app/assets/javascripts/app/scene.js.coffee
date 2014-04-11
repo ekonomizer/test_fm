@@ -1,6 +1,12 @@
 class window.Scene
 
   init:->
+    Array::is_empty = ->
+      @.length == 0
+
+    Array::size = ->
+      @.length
+
     window.config = new Config()
     window.scene = this
     @init_api()
@@ -25,7 +31,6 @@ class window.Scene
   first_request_loaded:(e)=>
     console.log 'first_request_loaded'
     window.server_params = e
-    window.owner = new User(window.server_params.user_stats)
 
     windows_manager = WindowsManager.get()
     if window.server_params.without_social
@@ -35,12 +40,22 @@ class window.Scene
     else if window.server_params.can_start
       Scene.start_game()
 
-  @start_game:->
+  @start_game:()->
+    Log.trace 'start_game'
+    user_stats = window.init_params || window.server_params.user_stats
+    window.owner = new User(user_stats)
+    window.user_club = new UserClub(user_stats)
+    window.user_club_manager = UserClubManager.get()
+    window.user_club_manager.init_user_clubs(user_stats.opponents)
+    window.user_club_manager.add_user_club(window.user_club)
+    window.calendar = CalendarManager.get(user_stats.calendar)
+
     WindowsManager.get().create_bottom_menu()
     @desktop = new Desktop()
-    #WindowsManager.get().show_window(DesktopWindow)
-    #alert('start_game')
-    #WindowsManager.get().show_window(BottomMenu)
+    @desktop.start_update()
+
+
+
 
   @get_desktop:->
     @desktop

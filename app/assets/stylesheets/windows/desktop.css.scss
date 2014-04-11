@@ -50,16 +50,37 @@
 
     }
 
-    #next_matches {
-      padding-right: 10px;
+
+    .match_text {
+      width: 100%;
+      text-align: right;
+      float: left;
+      .match_date {
+        color: #457CFF;
+        float: right;
+        padding-right: 5px;
+        text-align: right;
+      }
+      .match_clubs{
+        color: #445566;
+        float: right;
+        padding-right: 5px;
+      }
+      .match_result{
+        color: #B00100;
+        float: right;
+        font: 11pt Arial;
+      }
+    }
+
+    #matches {
+      padding-right: 5px;
       float: right;
       height: 100%;
       width: 37%;
       background-color: #adb8c0;
+      font: 10pt Arial;
       text-align: right;
-      #next_matches_text {
-
-      }
     }
   }
 }
