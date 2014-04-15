@@ -5,9 +5,10 @@
 #  id         :integer          not null, primary key
 #  id_home    :integer          not null
 #  id_guest   :integer          not null
-#  match_date :datetime         not null
+#  match_date :integer          not null
 #  division   :integer          not null
 #  universe   :integer          not null
+#  season     :integer          not null
 #  result     :hstore
 #
 

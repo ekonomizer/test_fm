@@ -8,6 +8,7 @@
 #  city_id    :integer          not null
 #  country_id :integer          not null
 #  division   :integer
+#  sort_order :integer
 #
 
 class Club < ActiveRecord::Base

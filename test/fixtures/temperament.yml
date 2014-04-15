@@ -1,0 +1,15 @@
+temperament_00000001:
+  id: 1
+  name: "Флегматик"
+
+temperament_00000002:
+  id: 2
+  name: "Меланхолик"
+
+temperament_00000003:
+  id: 3
+  name: "Сангвиник"
+
+temperament_00000004:
+  id: 4
+  name: "Холерик"

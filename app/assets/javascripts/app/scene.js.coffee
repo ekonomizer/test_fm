@@ -43,17 +43,18 @@ class window.Scene
   @start_game:()->
     Log.trace 'start_game'
     user_stats = window.init_params || window.server_params.user_stats
+    Log.trace_obj(user_stats)
     window.owner = new User(user_stats)
     window.user_club = new UserClub(user_stats)
     window.user_club_manager = UserClubManager.get()
     window.user_club_manager.init_user_clubs(user_stats.opponents)
     window.user_club_manager.add_user_club(window.user_club)
     window.calendar = CalendarManager.get(user_stats.calendar)
+    window.players_manager = PlayersManager.get(user_stats.players)
 
     WindowsManager.get().create_bottom_menu()
     @desktop = new Desktop()
     @desktop.start_update()
-
 
 
 

@@ -2,9 +2,10 @@
 #
 # Table name: universes
 #
-#  id         :integer          not null, primary key
-#  data       :hstore
-#  filled_now :string(255)
+#  id                         :integer          not null, primary key
+#  data                       :hstore
+#  filled_now                 :string(255)
+#  generate_championship_time :datetime
 #
 
 class Universe < ActiveRecord::Base

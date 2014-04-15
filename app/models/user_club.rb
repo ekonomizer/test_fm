@@ -8,6 +8,8 @@
 #  division    :integer          not null
 #  universe_id :integer          not null
 #  coins       :integer
+#  season      :integer
+#  sort_order  :integer
 #
 
 class UserClub < ActiveRecord::Base

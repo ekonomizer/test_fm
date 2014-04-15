@@ -1,3 +1,11 @@
+# == Schema Information
+#
+# Table name: match_dates
+#
+#  id   :integer          not null, primary key
+#  date :datetime
+#
+
 class MatchDate < ActiveRecord::Base
 
   OFFSET = 2.hour

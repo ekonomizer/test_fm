@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   include ClubsHelper
+  include PlayerHelper
+  include UsersHelper
 =begin
 	def create
 		logger.info {'USR CREATE'}
@@ -36,10 +38,10 @@ class UsersController < ApplicationController
           return
         end
 
-        club = UserClub.find(params['user_club_id'])
-        raise "no club with #{params['user_club_id']} user_club_id" unless club
-        if club.user_id
-          p "club is already used by user with id #{club.user_id}"
+        user_club = UserClub.find(params['user_club_id'])
+        raise "no user_club with #{params['user_club_id']} user_club_id" unless user_club
+        if user_club.user_id
+          p "user_club is already used by user with id #{user_club.user_id}"
           render :json => {new_clubs: get_free_clubs_response}
           return
         end
@@ -50,27 +52,19 @@ class UsersController < ApplicationController
         params.each_pair do |k,v|
           data[k] = v if %w(login password manager base_career).include? k
         end
-        user = User.create(data)
-        raise 'user invalid in create' unless user
-        club.user_id = user.id
-        club.coins = ApplicationConfig.default_coins
-        club.save!
-
-        render :json => {success_create: true, user_stats: user_stats(club)}
+        user = ActiveRecord::Base.transaction {
+          user = User.create(data)
+          raise 'user invalid in create' unless user
+          user_club.user_id = user.id
+          user_club.coins = ApplicationConfig.default_coins
+          user_club.save!
+          create_first_set_players user_club
+          user
+        }
+        render :json => {success_create: true, user_stats: user_stats(user, user_club)}
       end
 
     end
-  end
-
-  def user_stats user_club
-    data = {}
-    cached_club = Club.cached_clubs[user_club.club_id]
-    data['calendar'] = Championship.matches_current_season(user_club)
-    data['club_id'] = cached_club.id
-    data['user_club_id'] = user_club.id
-    data['division'] = user_club.division
-    data['coins'] = user_club.coins
-    data
   end
 
   @@counter = 0
