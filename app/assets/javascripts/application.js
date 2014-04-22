@@ -15,6 +15,10 @@
 //= require jquery.ui.all
 //= require_tree .
 
+
+
+
+
 $(document).ready(function(){
     window.scene = new Scene();
     window.scene.init();

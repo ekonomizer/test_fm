@@ -19,17 +19,19 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  text-shadow: 0px 1px 1px #969696;
+  filter: dropshadow(color=#e5e5ee,offX=0,offY=1);
 
   #header{
     height: 126px;
     width: 100%;
-    background-color: beige;
+    //background-color: beige;
     float: left;
 
     #club_icon {
       width: 16%;
       height: 100%;
-      background-color: #457CFF;
+      //background-color: #457CFF;
       float: left;
       .image {
         width: 100px;
@@ -43,10 +45,11 @@
       font: 10pt Arial;
     }
     #user_info {
+      padding-top: 10px;
       float: left;
       height: 100%;
       width: 30%;
-      background-color: darkseagreen;
+      //background-color: darkseagreen;
 
     }
 
@@ -74,11 +77,12 @@
     }
 
     #matches {
+      padding-top: 10px;
       padding-right: 5px;
       float: right;
       height: 100%;
       width: 37%;
-      background-color: #adb8c0;
+      //background-color: #adb8c0;
       font: 10pt Arial;
       text-align: right;
     }

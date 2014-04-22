@@ -68,7 +68,8 @@ class window.BottomMenu extends BaseWindow
     #alert('2')
 
   on_calendar_click:=>
-    #alert('3')
+    windows_manager = WindowsManager.get()
+    windows_manager.show_window(NewsWindow)
 
   update:->
     @visible(true)

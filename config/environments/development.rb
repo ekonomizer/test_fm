@@ -9,6 +9,8 @@ TestFm::Application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
+  #Rack::MiniProfiler.config.position = 'right'
+  Rack::MiniProfiler.config.start_hidden = true
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

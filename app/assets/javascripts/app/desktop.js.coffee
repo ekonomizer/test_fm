@@ -9,13 +9,13 @@ class window.Desktop
     @club_icon = $("#club_icon")
     @load_club_icon();
     @club_name = $("#club_name")
-    @club_name.html(window.texts.club_name)
+    @club_name.html(DomHelper.b(window.texts.club_name))
     @coach_name = $("#coach_name")
-    @coach_name.html(window.texts.coach + window.texts.dont_hired)
+    @coach_name.html(DomHelper.b(window.texts.coach) + window.texts.dont_hired)
     @director_name = $("#director_name")
-    @director_name.html(window.texts.director + window.texts.dont_hired)
+    @director_name.html(DomHelper.b(window.texts.director) + window.texts.dont_hired)
     @user_coins = $("#user_coins")
-    @user_coins.html(window.texts.money)
+    @user_coins.html(DomHelper.b(window.texts.money))
 
     @match_container = $("#next_matches")
     @match_text = $(".match_text")
@@ -35,12 +35,12 @@ class window.Desktop
       @create_last_match(last_match)
 
     unless next_matches.is_empty()
-      @next_matches.html(DomHelper.div('next_matches_title', window.texts.next_matches_text))
+      @next_matches.html(DomHelper.div('next_matches_title', DomHelper.b(window.texts.next_matches_text)))
       for match in next_matches
         @create_next_match(match)
 
   create_last_match:(last_match)->
-    @last_matches.html(DomHelper.div('last_matches_title', window.texts.last_match_text))
+    @last_matches.html(DomHelper.div('last_matches_title', DomHelper.b(window.texts.last_match_text)))
     match_text_clone = @match_text.clone()
     home_club_name = window.user_club_manager.user_clubs[last_match.id_home].club.name_ru
     guest_club_name = window.user_club_manager.user_clubs[last_match.id_guest].club.name_ru
@@ -63,7 +63,7 @@ class window.Desktop
     img_params = {}
     img_params.alt = "coach"
     img_params.width = "150"
-    img_params.src = window.img_path+"boss.jpg"
+    img_params.src = window.img_path+"mu.jpg"
     img = TagManager.img(img_params)
     @club_icon.html(img)
 
@@ -72,17 +72,17 @@ class window.Desktop
     Log.trace('update', 'red')
     ready_to_stop_update = 0
     if window.user_club && window.user_club.club && window.user_club.country
-      @club_name.html(window.texts.club_name + window.user_club.club.name_ru + ", " + "D" + window.user_club.division + ", " + window.user_club.country.name_ru)
+      @club_name.html(DomHelper.b(window.texts.club_name) + window.user_club.club.name_ru + ", " + "D" + window.user_club.division + ", " + window.user_club.country.name_ru)
       ready_to_stop_update++
 
     if window.owner.first_name && window.owner.last_name
       if window.owner.is_coach()
-        @coach_name.html(window.texts.coach + window.owner.last_name + " " + window.owner.first_name)
+        @coach_name.html(DomHelper.b(window.texts.coach) + window.owner.last_name + " " + window.owner.first_name)
       else
-        @director_name.html(window.texts.director + window.texts.dont_hired)
+        @director_name.html(DomHelper.b(window.texts.director) + window.texts.dont_hired)
       ready_to_stop_update++
 
-    @user_coins.html(window.texts.money + window.user_club.coins)
+    @user_coins.html(DomHelper.b(window.texts.money) + window.user_club.coins)
 
     if @match_container.length == 1 && window.calendar.current_season_loaded && @all_clubs_is_loaded()
       ready_to_stop_update++

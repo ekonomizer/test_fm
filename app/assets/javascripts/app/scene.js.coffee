@@ -56,6 +56,9 @@ class window.Scene
     @desktop = new Desktop()
     @desktop.start_update()
 
+    windows_manager = WindowsManager.get()
+    windows_manager.show_window(NewsWindow)
+
 
 
   @get_desktop:->
