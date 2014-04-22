@@ -7,12 +7,26 @@ module ClubsHelper
     #user_clubs = UserClub.joins(:club).where(user_id: nil)
     user_clubs = UserClub.select(:id, :club_id, :universe_id, :sort_order, :division).where(user_id: nil).order("sort_order").limit(DEFAULT_FREE_CLUBS_CNT)
 
-    if user_clubs.empty?
-      ActiveRecord::Base.transaction { create_new_universe_user_clubs }
-      user_clubs = UserClub.select(:id, :club_id, :universe_id, :sort_order, :division).where(user_id: nil).order("sort_order").limit(DEFAULT_FREE_CLUBS_CNT)
-    end
+    user_clubs = create_new_clubs if user_clubs.empty?
+
     check_championship_table user_clubs
     get_next_clubs_objects user_clubs
+  end
+
+  def create_new_clubs
+    ActiveRecord::Base.transaction {
+      create_new_universe_user_clubs
+      user_clubs = UserClub.select(:id, :club_id, :universe_id, :sort_order, :division).where(user_id: nil).order("sort_order")
+
+      free_clubs = []
+      counter = 0
+      user_clubs.each do |user_club|
+        self.create_first_set_players user_club
+        counter += 1
+        free_clubs << user_club if counter < DEFAULT_FREE_CLUBS_CNT
+      end
+      free_clubs
+    }
   end
 
   def check_championship_table user_clubs

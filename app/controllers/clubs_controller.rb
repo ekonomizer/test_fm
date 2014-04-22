@@ -1,6 +1,7 @@
 class ClubsController < ApplicationController
 
   include ClubsHelper
+  include PlayerHelper
 
 	def free_clubs
     Mutex.new.synchronize do

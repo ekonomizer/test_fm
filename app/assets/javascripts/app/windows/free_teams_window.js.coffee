@@ -6,7 +6,7 @@ class window.FreeTeamsWindow extends BaseWindow
   init:->
     @window = $("#free_teams_window")
     @always_on_top = true
-    @scrollable_div = '#jp-container'
+    @scrollable_div = '#selectable'
     @clubs_container = $("#selectable")
 
     @li = $("#free_teams_window #new")

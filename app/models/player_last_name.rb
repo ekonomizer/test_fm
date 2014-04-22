@@ -7,7 +7,7 @@
 #
 
 class PlayerLastName < ActiveRecord::Base
-  COUNT = 158792
+  COUNT = 158510
 
   def self.get_random cnt = 1
     PlayerLastName.find(MathHelper.get_random(cnt, COUNT))

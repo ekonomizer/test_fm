@@ -25,7 +25,7 @@ module PlayerHelper
     players = []
     first_names = PlayerFirstName.get_random DEFAULT_PLAYERS_CNT
     last_names = PlayerLastName.get_random DEFAULT_PLAYERS_CNT
-    cached_countries = Country.cached_countries
+    cached_countries = Country.cached_countries.clone
     cached_countries.shift
     captain_idx = rand(1..DEFAULT_PLAYERS_CNT)
     temperament_ids = Temperament.get_random_ids DEFAULT_PLAYERS_CNT

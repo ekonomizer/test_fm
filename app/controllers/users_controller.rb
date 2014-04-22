@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   include ClubsHelper
-  include PlayerHelper
   include UsersHelper
 =begin
 	def create
@@ -58,7 +57,6 @@ class UsersController < ApplicationController
           user_club.user_id = user.id
           user_club.coins = ApplicationConfig.default_coins
           user_club.save!
-          create_first_set_players user_club
           user
         }
         render :json => {success_create: true, user_stats: user_stats(user, user_club)}
