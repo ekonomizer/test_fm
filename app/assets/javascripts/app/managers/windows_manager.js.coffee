@@ -14,7 +14,7 @@ class window.WindowsManager
   init:(name = "unknown")->
     @showed_windows ||= []
     @init_resize_handler()
-    @windows_classes = [AuthWindow, ChoiceBaseCareerWindow, FreeTeamsWindow, LoginWithoutSocialWindow, NewsWindow]
+    @windows_classes = [AuthWindow, ChoiceBaseCareerWindow, FreeTeamsWindow, LoginWithoutSocialWindow, NewsWindow, MatchWindow ]
     @windows = []
     @set_default_windows_positions()
     @set_default_z_index()

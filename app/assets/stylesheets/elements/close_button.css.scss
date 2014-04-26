@@ -2,8 +2,8 @@
   position: absolute;
   width: 40px;
   height: 40px;
-  top: 20px;
-  right: 20px;
+  top: 5px;
+  right: 10px;
   cursor: pointer;
 }
 
@@ -12,9 +12,10 @@
   content: '';
   position: absolute;
   width: 100%;
+  background: #fff;
   top: 50%;
+  right: 0;
   height: 1px;
-  background: #888;
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -28,5 +29,5 @@
 
 .og-close:hover::before,
 .og-close:hover::after {
-  background: #333;
+  background: #000;
 }

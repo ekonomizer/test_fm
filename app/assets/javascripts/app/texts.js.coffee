@@ -49,3 +49,6 @@ class window.Texts
     @joke_label = "Шутка дутка дня"
     @joke_content = "<p>Пятиклассник Вахтанг требует затонировать окна в классе, а то \"как лохи сидим\"</p>"
     @news_window_title = "Новости"
+
+    @news_hint = "Новости"
+    @match_hint = "Отправить состав"

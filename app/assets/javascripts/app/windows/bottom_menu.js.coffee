@@ -52,22 +52,27 @@ class window.BottomMenu extends BaseWindow
     @redrawReady = false
     @update()
     @init_click_handlers()
+    @init_hints()
+
+  init_hints:->
+    $('#b_m_news span').html(window.texts.news_hint)
+    $('#b_m_match span').html(window.texts.match_hint)
 
 
   init_click_handlers:->
-    $('#b_m_address').click(@on_address_click)
+    $('#b_m_match').click(@on_match_click)
     $('#b_m_band').click(@on_band_click)
-    $('#b_m_calendar').click(@on_calendar_click)
+    $('#b_m_news').click(@on_news_click)
 
 
-  on_address_click:=>
+  on_match_click:=>
     windows_manager = WindowsManager.get()
-    windows_manager.show_window(AuthWindow)
+    windows_manager.show_window(MatchWindow)
 
   on_band_click:=>
     #alert('2')
 
-  on_calendar_click:=>
+  on_news_click:=>
     windows_manager = WindowsManager.get()
     windows_manager.show_window(NewsWindow)
 

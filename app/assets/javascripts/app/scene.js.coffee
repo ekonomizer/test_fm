@@ -57,7 +57,7 @@ class window.Scene
     @desktop.start_update()
 
     windows_manager = WindowsManager.get()
-    windows_manager.show_window(NewsWindow)
+    windows_manager.show_window(MatchWindow)
 
 
 
