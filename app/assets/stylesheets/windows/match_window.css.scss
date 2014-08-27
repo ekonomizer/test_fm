@@ -10,12 +10,46 @@
     width: 730px;
     padding-left: 4px;
 
+    .scroller {
+      height: 540px;
+
+
+      #schems {
+        width: 230px;
+        float: left;
+        height: 100%;
+        background-color: #CCCCCC;
+      }
+
+      #positions {
+        float: right;
+        height: 100%;
+        background-color: #FFA32A;
+      }
+
+      #players {
+        padding-right: 13px;
+        width: 200px;
+        float: right;
+        background-color: #457CFF;
+        height: 100%;
+        .cd-dropdown,
+        .cd-select {
+          font-size: 12px;
+          width: 185px;
+
+        }
+        .cd-dropdown ul li span {
+          text-align: left;
+        }
+
+
+      }
+    }
 
   }
+//
 
-  .scroller {
-    height: 540px;
-  }
 
 
 }

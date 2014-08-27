@@ -7,6 +7,23 @@ class window.Scene
     Array::size = ->
       @.length
 
+    Array::first = ->
+      if @.length > 0
+        @[0]
+      else
+        null
+
+    Array::last = ->
+      if @.length > 0
+        @[@length - 1]
+      else
+        null
+
+    Array::unique = ->
+      output = {}
+      output[@[key]] = @[key] for key in [0...@length]
+      value for key, value of output
+
     window.config = new Config()
     window.scene = this
     @init_api()

@@ -25,7 +25,7 @@ class Championship < ActiveRecord::Base
 
 
   def self.matches_current_season user_club
-    Championship.select(:id_home, :id_guest, :match_date, :result).where(["season = (?) AND universe = (?) AND (id_home = (?) OR id_guest = (?))", user_club.season, user_club.universe_id, user_club.id, user_club.id])
+    Championship.select(:id, :id_home, :id_guest, :match_date, :result).where(["season = (?) AND universe = (?) AND (id_home = (?) OR id_guest = (?))", user_club.season, user_club.universe_id, user_club.id, user_club.id])
   end
 
   #def self.last_match_with_result_by_id club_id

@@ -46,6 +46,12 @@
 			this._initEvents();
 
 		},
+        reset_list : function(){
+            //this.listopts = $( '<ul/>' ).append( optshtml );
+            this._disableEvents();
+            this.opts = this.listopts.children( 'li' );
+            this._initEvents();
+        },
 		_layout : function() {
 
 			var self = this;
@@ -94,7 +100,11 @@
 
 			this.listopts = $( '<ul/>' ).append( optshtml );
 			this.selectlabel = $( '<span/>' ).append( selectlabel );
-			this.dd = $( '<div class="cd-dropdown"/>' ).append( this.selectlabel, this.listopts ).insertAfter( this.$el );
+            //alert($.topZIndex('span'));
+
+
+            var zidx = $.topZIndex('.cd-dropdown') + 1;
+			this.dd = $( '<div class="cd-dropdown" style="z-index: ' + zidx.toString() + '"/>' ).append( this.selectlabel, this.listopts ).insertAfter( this.$el );
 			this.$el.remove();
 
 			return value;
@@ -117,39 +127,46 @@
 					} );
 				} );
 
-			if( !this.options.slidingIn ) {
-				this.opts
-					.eq( this.optsCount - 1 )
-					.css( { top : this.options.stack ? 9 : 0, left : this.options.stack ? 4 : 0, width : this.options.stack ? this.size.width - 8 : this.size.width, transform : 'none' } )
-					.end()
-					.eq( this.optsCount - 2 )
-					.css( { top : this.options.stack ? 6 : 0, left : this.options.stack ? 2 : 0, width : this.options.stack ? this.size.width - 4 : this.size.width, transform : 'none' } )
-					.end()
-					.eq( this.optsCount - 3 )
-					.css( { top : this.options.stack ? 3 : 0, left : 0, transform : 'none' } );
-			}
+//			if( !this.options.slidingIn ) {
+//				this.opts
+//					.eq( this.optsCount - 1 )
+//					.css( { top : this.options.stack ? 9 : 0, left : this.options.stack ? 4 : 0, width : this.options.stack ? this.size.width - 8 : this.size.width, transform : 'none' } )
+//					.end()
+//					.eq( this.optsCount - 2 )
+//					.css( { top : this.options.stack ? 6 : 0, left : this.options.stack ? 2 : 0, width : this.options.stack ? this.size.width - 4 : this.size.width, transform : 'none' } )
+//					.end()
+//					.eq( this.optsCount - 3 )
+//					.css( { top : this.options.stack ? 3 : 0, left : 0, transform : 'none' } );
+//			}
 
 		},
+        value:function(){return this.inputEl.val()},
+        _disableEvents:function(){
+            this.selectlabel.off();
+            this.opts.off();
+        },
 		_initEvents : function() {
 
 			var self = this;
+            var on_selectlabel_click = function( event ) {
+                console.log('on_selectlabel_click');
+                self.opened ? self.close() : self.open();
+                return false;
 
-			this.selectlabel.on( 'mousedown.dropdown', function( event ) {
-				self.opened ? self.close() : self.open();
-				return false;
+            };
+			this.selectlabel.on( 'mousedown.dropdown', on_selectlabel_click);
 
-			} );
-
-			this.opts.on( 'click.dropdown', function() {
-				if( self.opened ) {
-					var opt = $( this );
-					self.options.onOptionSelect( opt );
-					self.inputEl.val( opt.data( 'value' ) );
-					self.selectlabel.html( opt.html() );
-					self.close();
-				}
-			} );
-
+            var on_opts_click = function() {
+                console.log('on_opts_click');
+                if( self.opened ) {
+                    var opt = $( this );
+                    self.options.onOptionSelect( opt );
+                    self.inputEl.val( opt.data( 'value' ) );
+                    self.selectlabel.html( opt.html() );
+                    self.close();
+                }
+            };
+			this.opts.on( 'click.dropdown', on_opts_click);
 		},
 		open : function() {
 			var self = this;
@@ -178,17 +195,17 @@
 
 		},
 		close : function() {
-
-			var self = this;
-			this.dd.toggleClass( 'cd-active' );
-			if( this.options.delay /*&& Modernizr.csstransitions*/ ) {
-				this.opts.each( function( i ) {
-					$( this ).css( { 'transition-delay' : self.options.slidingIn ? ( ( self.optsCount - 1 - i ) * self.options.delay ) + 'ms' : ( i * self.options.delay ) + 'ms' } );
-				} );
-			}
-			this._positionOpts( true );
-			this.opened = false;
-
+            if (this.opened) {
+                var self = this;
+                this.dd.toggleClass( 'cd-active' );
+                if( this.options.delay /*&& Modernizr.csstransitions*/ ) {
+                    this.opts.each( function( i ) {
+                        $( this ).css( { 'transition-delay' : self.options.slidingIn ? ( ( self.optsCount - 1 - i ) * self.options.delay ) + 'ms' : ( i * self.options.delay ) + 'ms' } );
+                    } );
+                }
+                this._positionOpts( true );
+                this.opened = false;
+            }
 		}
 
 	}

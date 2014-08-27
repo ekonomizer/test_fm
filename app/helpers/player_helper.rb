@@ -12,10 +12,10 @@ module PlayerHelper
   POSITIONS = [
       "GK",
       "SW",
-"LB", "RB", "CB",
-"LWB","RWB", "DM",
-"LM", "RM", "CM",
-"LW", "RW", "AM",
+"LB", "CB", "RB",
+"LWB", "DM", "RWB",
+"LM", "CM", "RM",
+"LW", "AM", "RW",
       "SS",
       "CF"]
 

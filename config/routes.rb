@@ -8,6 +8,7 @@ TestFm::Application.routes.draw do
   get "users/test_threads"
   get "clubs/free_clubs"
   get "init/first_request"
+  get "championships/set_formation"
 
   resource :users
   root :to => "init#load_app"
