@@ -25,7 +25,7 @@ class window.CalendarManager
     Log.trace("match_dates_loaded")
     for day in @match_dates
       day["date"] = e[day.match_date]
-      day["date"].date = new Date(day["date"].date)
+      day["date"].date = new Date(day["date"].date.replace(' ', 'T'))
       day["date"].date_str = DateHelper.date(day["date"].date)
     @current_season_loaded = true
 #    desktop = Scene.get_desktop()
