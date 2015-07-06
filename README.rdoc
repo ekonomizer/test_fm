@@ -29,3 +29,14 @@ http://fmassets.appspot.com/
 ssh tunel to db
 ssh -L 5433:127.0.0.1:5432 \
 deploy@ec2-54-204-28-218.compute-1.amazonaws.com
+
+
+quick_start:
+1)install rvm
+2)install ruby 2.1.2
+3)rvm use ruby-2.1.2
+4)rvm use 2.1.2@rails_test_start401fm --create
+5)gem install bundle --no-ri --no-rdoc
+6)bundle install
+7)create db
+8)rake db:migrate
