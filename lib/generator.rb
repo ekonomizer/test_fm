@@ -64,6 +64,12 @@ items_settings = [
         "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=1116463520&single=true&output=csv",
         "output_file" => "../test/fixtures/player_last_names.yml",
         "template_name" => "player_last_names"
+    },
+# даты игр
+    {
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=2062586086&single=true&output=csv",
+        "output_file" => "../test/fixtures/match_dates.yml",
+        "template_name" => "match_dates"
     }
 ]
 

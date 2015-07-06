@@ -1,0 +1,9 @@
+<%
+  data = []
+  @idx += 1
+  set_param(data, "id", @idx)
+  set_param(data, "date", item["date"])
+
+%>match_date_<%=@counter.succ!%>:
+  <%=generate_params data%>
+

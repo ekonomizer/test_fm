@@ -40,3 +40,5 @@ quick_start:
 6)bundle install
 7)create db
 8)rake db:migrate
+9)rake db:load_all_fixtures
+9)rails s

@@ -3,7 +3,7 @@ club_00000001:
   name_ru: "Милан"
   name_en: "Милан"
   city_id: 1
-  country_id: 20
+  country_id: 21
   division: 1
 
 club_00000002:
@@ -11,7 +11,7 @@ club_00000002:
   name_ru: "Лацио"
   name_en: "Лацио"
   city_id: 2
-  country_id: 20
+  country_id: 21
   division: 1
 
 club_00000003:
@@ -19,7 +19,7 @@ club_00000003:
   name_ru: "Фиорентина"
   name_en: "Фиорентина"
   city_id: 2
-  country_id: 20
+  country_id: 21
   division: 1
 
 club_00000004:
@@ -27,7 +27,7 @@ club_00000004:
   name_ru: "Генуя"
   name_en: "Генуя"
   city_id: 3
-  country_id: 20
+  country_id: 21
   division: 2
 
 club_00000005:
@@ -35,7 +35,7 @@ club_00000005:
   name_ru: "Интер"
   name_en: "Интер"
   city_id: 1
-  country_id: 20
+  country_id: 21
   division: 1
 
 club_00000006:
@@ -43,7 +43,7 @@ club_00000006:
   name_ru: "Ювентус"
   name_en: "Ювентус"
   city_id: 2
-  country_id: 20
+  country_id: 21
   division: 1
 
 club_00000007:
@@ -51,7 +51,7 @@ club_00000007:
   name_ru: "Палермо"
   name_en: "Палермо"
   city_id: 1
-  country_id: 20
+  country_id: 21
   division: 2
 
 club_00000008:
@@ -59,7 +59,7 @@ club_00000008:
   name_ru: "Динамо"
   name_en: "Динамо"
   city_id: 4
-  country_id: 34
+  country_id: 1
   division: 1
 
 club_00000009:
@@ -67,7 +67,7 @@ club_00000009:
   name_ru: "Локомотив"
   name_en: "Локомотив"
   city_id: 4
-  country_id: 34
+  country_id: 1
   division: 1
 
 club_00000010:
@@ -75,7 +75,7 @@ club_00000010:
   name_ru: "Зенит"
   name_en: "Зенит"
   city_id: 6
-  country_id: 34
+  country_id: 1
   division: 1
 
 club_00000011:
@@ -83,7 +83,7 @@ club_00000011:
   name_ru: "ЦСКА"
   name_en: "ЦСКА"
   city_id: 4
-  country_id: 34
+  country_id: 1
   division: 1
 
 club_00000012:
@@ -91,7 +91,7 @@ club_00000012:
   name_ru: "Анжи"
   name_en: "Анжи"
   city_id: 5
-  country_id: 34
+  country_id: 1
   division: 2
 
 club_00000013:
@@ -99,7 +99,7 @@ club_00000013:
   name_ru: "Спартак"
   name_en: "Спартак"
   city_id: 4
-  country_id: 34
+  country_id: 1
   division: 2
 
 club_00000014:
@@ -107,7 +107,7 @@ club_00000014:
   name_ru: "Ливерпуль"
   name_en: "Ливерпуль"
   city_id: 7
-  country_id: 4
+  country_id: 5
   division: 1
 
 club_00000015:
@@ -115,7 +115,7 @@ club_00000015:
   name_ru: "Манчестер"
   name_en: "Манчестер"
   city_id: 7
-  country_id: 4
+  country_id: 5
   division: 1
 
 club_00000016:
@@ -123,7 +123,7 @@ club_00000016:
   name_ru: "Сити"
   name_en: "Сити"
   city_id: 7
-  country_id: 4
+  country_id: 5
   division: 2
 
 club_00000017:
@@ -131,7 +131,7 @@ club_00000017:
   name_ru: "Арсенал"
   name_en: "Арсенал"
   city_id: 7
-  country_id: 4
+  country_id: 5
   division: 1
 
 club_00000018:
@@ -139,7 +139,7 @@ club_00000018:
   name_ru: "Ньюкасл"
   name_en: "Ньюкасл"
   city_id: 8
-  country_id: 4
+  country_id: 5
   division: 2
 
 club_00000019:
@@ -147,7 +147,7 @@ club_00000019:
   name_ru: "Тотенхем"
   name_en: "Тотенхем"
   city_id: 8
-  country_id: 4
+  country_id: 5
   division: 2
 
 club_00000020:
@@ -155,7 +155,7 @@ club_00000020:
   name_ru: "Гринвич"
   name_en: "Гринвич"
   city_id: 8
-  country_id: 4
+  country_id: 5
   division: 3
 
 club_00000021:

@@ -67,7 +67,7 @@ namespace :db do
   desc 'Fill all tables in DB, need call first start'
   task :load_all_fixtures do
 
-    args = "cities,countries,clubs,leagues,universes,player_first_names,player_last_names"
+    args = "cities,countries,clubs,leagues,universes,match_dates,player_first_names,player_last_names"
     p 'LOAD FIXTURES:'
     p args
 
