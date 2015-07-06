@@ -1,0 +1,9 @@
+<%
+  data = []
+  @idx += 1
+  set_param(data, "id", @idx)
+  set_param(data, "first_name", item["first_name"])
+
+%>first_name_<%=@counter.succ!%>:
+  <%=generate_params data%>
+

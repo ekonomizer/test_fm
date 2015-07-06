@@ -1,31 +1,5 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
 
 #activerecord-import-0.4.1/lib/activerecord-import/base.rb
 #adapter = adapter.sub("jdbc","")
@@ -34,11 +8,14 @@ Please feel free to use a different markup language if you do not plan to run
 annotate --exclude tests,fixtures,factories
 rake db:fixtures:extract FIXTURES=clubs,countries #export from db
 rake db:fixtures:load_and_create_json clubs,countries #import to db
-rake db:fixtures:load_and_create_json cities,countries,clubs,leagues,universes
+rake db:fixtures:load_and_create_json cities,countries,clubs,leagues,universes # будет ошибка rake это норм
 ruby lib/generator.rb universes
 
 AFTER change DB(countries clubs match_dates) need execute: rake db:fixtures:load_and_create_json match_dates
 and then deploy json to google server
+
+
+
 
 https server
 ssl connecting - bundle exec ruby bin/rails_https s

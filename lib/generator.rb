@@ -18,7 +18,7 @@ puts "==================================================="
 items_settings = [
 # лиги
     {
-        "source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=1&output=csv",
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=1&single=true&output=csv",
         "output_file" => "../test/fixtures/leagues.yml",
         #"rb_output_file" => "../app/models_market/stage_items/stocks.rb",
         "template_name" => "leagues",
@@ -26,21 +26,23 @@ items_settings = [
     },
 # страны
     {
-        "source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=0&output=csv",
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=0&single=true&output=csv",
         "output_file" => "../test/fixtures/countries.yml",
         "template_name" => "countries",
         "required_fields" => ['id','name_ru','name_en','league_id']
     },
 # города
     {
-        "source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=2&output=csv",
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=2&single=true&output=csv",
+        #"source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=2&output=csv",
         "output_file" => "../test/fixtures/cities.yml",
         "template_name" => "cities",
         "required_fields" => ['id','name_ru','name_en']
     },
 # клубы
     {
-        "source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=3&output=csv",
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=3&single=true&output=csv",
+        #"source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=3&output=csv",
         "output_file" => "../test/fixtures/clubs.yml",
         "template_name" => "clubs",
         "required_fields" => ['id','name_ru','name_en']
@@ -50,6 +52,18 @@ items_settings = [
         #"source_url" => "https://docs.google.com/spreadsheet/pub?key=0Ar-vWk5fEacUdGR4U1pzZ2xGZ0Fnbkk4XzVDRTA3aXc&single=true&gid=3&output=csv",
         "output_file" => "../test/fixtures/universes.yml",
         "template_name" => "universes"
+    },
+# имена игроков
+    {
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=1935544050&single=true&output=csv",
+        "output_file" => "../test/fixtures/player_first_names.yml",
+        "template_name" => "player_first_names"
+    },
+# фамилии игроков
+    {
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=1116463520&single=true&output=csv",
+        "output_file" => "../test/fixtures/player_last_names.yml",
+        "template_name" => "player_last_names"
     }
 ]
 
@@ -124,6 +138,7 @@ items.each do |k, v|
     next if k == "buildsite"
 
     @counter = "00000000"
+    @idx = 0
     puts "======================================================="
     puts "generate items metadata from template: #{k}"
     result, rb_result = generate_items_list(v["items"], k, v["settings"]["server_classes_folder"])
