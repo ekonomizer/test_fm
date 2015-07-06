@@ -6,6 +6,7 @@
 #require File.join(AdapterPath,"/#{adapter}_adapter") #Handle JRuby jdbc adapters.
 
 annotate --exclude tests,fixtures,factories
+rake db:load_all_fixtures #export from db
 rake db:fixtures:extract FIXTURES=clubs,countries #export from db
 rake db:fixtures:load_and_create_json clubs,countries #import to db
 rake db:fixtures:load_and_create_json cities,countries,clubs,leagues,universes # будет ошибка rake это норм
