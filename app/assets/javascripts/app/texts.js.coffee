@@ -52,3 +52,7 @@ class window.Texts
 
     @news_hint = "Новости"
     @match_hint = "Отправить состав"
+
+
+
+    @strength = "S"

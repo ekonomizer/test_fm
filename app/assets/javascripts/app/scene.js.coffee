@@ -24,6 +24,7 @@ class window.Scene
       output[@[key]] = @[key] for key in [0...@length]
       value for key, value of output
 
+    window.shared_config = new ApplicationSharedConfig()
     window.config = new Config()
     window.scene = this
     @init_api()

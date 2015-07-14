@@ -9,7 +9,12 @@
 
 	<div id="content" class="scroll_div font_size_16 base_window_content accordion accordion-resizer">
         <div class="scroller">
-            <div id="schems"></div>
+            <div id="schems">
+                <%=image_tag "football_pole_mini.jpg", :alt => "schems" %>
+                <select id="dropdown_schems" class="cd-select">
+                    <option id="pos0" value="-1" selected="true">Игрок</option>
+                </select>
+            </div>
 
             <div id="players">
                 <select id="dropdown_players" class="cd-select">

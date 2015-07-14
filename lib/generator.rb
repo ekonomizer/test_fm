@@ -70,6 +70,12 @@ items_settings = [
         "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=2062586086&single=true&output=csv",
         "output_file" => "../test/fixtures/match_dates.yml",
         "template_name" => "match_dates"
+    },
+# конфиг
+    {
+        "source_url" => "https://docs.google.com/spreadsheets/d/1cEXJuAk-eKNazszBX8ZLXmDnUk1-kGyCduQzGDmhFqg/pub?gid=2062586086&single=true&output=csv",
+        "output_file" => "../app/assets/javascripts/app/application_shared_config.js.coffee",
+        "template_name" => "config"
     }
 ]
 
@@ -96,6 +102,29 @@ def generate_params data
   s.join("\n  ")
 end
 
+def generate_object(key, value)
+  if value.kind_of?(Array)
+    result = generate_object_from_array(value)
+  elsif value.kind_of?(Hash)
+    result = generate_object_from_hash(value)
+  elsif value.kind_of?(Fixnum) || value.kind_of?(Symbol) || value.kind_of?(Bignum)
+    result = value.to_s
+  elsif value.kind_of?(TrueClass) || value.kind_of?(FalseClass)
+    result = value.to_s
+  else
+    result = "\"#{value.to_s}\""
+  end
+  result
+end
+
+def generate_object_from_hash(hash)
+  "{#{hash.map{|k,v| "'#{k}':#{generate_object(k, v)}"}.join(',')}}"
+end
+
+def generate_object_from_array(array)
+  "[#{array.map{|v| "#{generate_object(0, v)}"}.join(',')}]"
+end
+
 def create_universes settings
   @counter = "00000000"
   puts "======================================================="
@@ -107,6 +136,18 @@ def create_universes settings
   end
 
   result, rb_result = generate_items_list(items, settings["template_name"], nil)
+  puts "write items metadata #{settings["output_file"]}"
+  write_result(settings["output_file"], result)
+end
+
+def create_config settings
+  config = YAML.load(Tfp.load(File.join(File.dirname(__FILE__), '..','config', 'shared', 'shared_config.yml')))
+  puts "======================================================="
+  puts "generate items metadata from template: #{settings}"
+
+  template = File.open(full_name("../generator/#{settings["template_name"]}.yml.erb")).read
+  result   = ERB.new(template).result(binding)
+
   puts "write items metadata #{settings["output_file"]}"
   write_result(settings["output_file"], result)
 end
@@ -124,6 +165,10 @@ items_settings.each do |settings|
   if ARGV.empty? || ARGV.include?(settings["template_name"])
     if settings["template_name"] == 'universes'
       create_universes settings
+      break
+    end
+    if settings["template_name"] == 'config'
+      create_config settings
       break
     end
     puts "#{settings["template_name"]} =>> downloading items from: #{settings["source_url"]}"

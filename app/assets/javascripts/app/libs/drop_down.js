@@ -33,7 +33,7 @@
 		rotated : false,
 		// effect to slide in the options. value is the margin to start with
 		slidingIn : false,
-		onOptionSelect : function(opt) { return false; }
+		onOptionSelect : function(opt, params) { return false; }
 	};
 
 	$.DropDown.prototype = {
@@ -160,9 +160,9 @@
                 console.log('on_opts_click');
                 if( self.opened ) {
                     var opt = $( this );
-                    self.options.onOptionSelect( opt );
-                    self.inputEl.val( opt.data( 'value' ) );
                     self.selectlabel.html( opt.html() );
+                    self.options.onOptionSelect( opt, {obj: self} );
+                    self.inputEl.val( opt.data( 'value' ) );
                     self.close();
                 }
             };
