@@ -46,23 +46,7 @@ class window.MatchWindow extends BaseWindow
       {name: "SS", x: 108, y: 433},
       {name: "CF", x: 108, y: 470}]
 
-    @SCHEMS = [
-'6-4-0'
-5-5-0
-5-4-1
-5-3-2
-5-2-3
-5-1-4
-4-6-0
-4-5-1
-4-4-2
-4-3-3
-4-2-4
-3-6-1
-3-5-2
-3-4-3
-3-3-4
-]
+    @SCHEMS = []
 
 
 
