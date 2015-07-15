@@ -12,18 +12,6 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/workspace/*
-/log/*.log
+/log/*
+!/log/.keep
 /tmp
-/config/database.yml
-/config/*.yml
-
-db/schema.rb
-.idea
-*.iml
-*.pid
-
-.rakeTasks
-
-.sass-cache/
-public/assets/

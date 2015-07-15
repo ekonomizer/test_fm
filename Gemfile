@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'actionpack-page_caching'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+gem 'rails', '4.2.0'
 gem 'pg'
 #gem 'activerecord-jdbcpostgresql-adapter', '~>1.3.0.beta2'
 gem 'dalli'
@@ -14,7 +14,7 @@ gem 'jquery-rails'
 
 gem 'dimensions-rails'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '>= 4.0.3'
 
 gem 'activerecord-import'
 #gem 'sequel'
@@ -22,7 +22,7 @@ gem 'activerecord-import'
 group :assets do
   #gem 'yui-compressor'
   # Use CoffeeScript for .js.coffee assets and views
-  gem 'coffee-rails', '~> 4.0.0'
+  gem 'coffee-rails', '>= 4.0.0'
   # Use Uglifier as compressor for JavaScript assets
   gem 'uglifier', '>= 1.3.0'
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -36,7 +36,13 @@ group :development do
 	gem 'annotate'
   gem 'rack-mini-profiler'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring',        group: :development
+  gem 'spring'
+
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 end
 
 group :production, :alpha do

@@ -12,6 +12,7 @@ Rails.application.configure do
   #Rack::MiniProfiler.config.position = 'right'
   Rack::MiniProfiler.config.start_hidden = true
 
+  config.log_level = :debug
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   #enable cache
@@ -24,7 +25,7 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
-  config.log_level = :debug
+
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
 
@@ -32,6 +33,10 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Asset digests allow you to set far-future HTTP expiration dates on all assets,
+  # yet still be able to expire them through the digest params.
+  config.assets.digest = true
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
