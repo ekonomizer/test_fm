@@ -14,7 +14,7 @@ gem 'jquery-rails'
 
 gem 'dimensions-rails'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 
 gem 'activerecord-import'
 #gem 'sequel'
@@ -35,6 +35,8 @@ group :development do
   gem 'engineyard'
 	gem 'annotate'
   gem 'rack-mini-profiler'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring',        group: :development
 end
 
 group :production, :alpha do
