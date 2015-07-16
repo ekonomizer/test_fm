@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'actionpack-page_caching'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.0'
+gem 'rails', '>= 4.2.0'
 gem 'pg'
 #gem 'activerecord-jdbcpostgresql-adapter', '~>1.3.0.beta2'
 gem 'dalli'

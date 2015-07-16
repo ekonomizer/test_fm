@@ -35,10 +35,7 @@ quick_start:
 1)install rvm
 2)install ruby 2.1.2
 3)rvm use ruby-2.1.2
-4)rvm use 2.1.2@rails_test_start401fm --create
-5)gem install bundle --no-ri --no-rdoc
-6)bundle install
-7)create db
-8)rake db:migrate
-9)rake db:load_all_fixtures
-9)rails s
+4)rvm use ruby-2.1.2@rails420 --create
+5)change login pass in databas.yml
+6)bin/setup
+7)rails s
